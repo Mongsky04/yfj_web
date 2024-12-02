@@ -41,7 +41,7 @@ $result = $conn->query($sql);
         </div>
         <form id="placeOrderForm" method="POST" action="my-reservasi.php">
             <input type="hidden" name="orderDetails" id="orderDetails">
-            <button type="submit">Place Order</button>
+            <button type="submit" name="submit-makanan">Place Order</button>
         </form>
     </div>
 </div>
