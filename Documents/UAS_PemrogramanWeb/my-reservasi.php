@@ -106,30 +106,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['orderDetails'])) {
                 <!-- Reservation Details Section -->
                 <div class="billreserv">
                     <div class="iden">
-                    <?php
-                        if (isset($_POST['submit-makanan'])) {
-                        ?>
-                            <div class="identitasku1">
+                        <div class="identitasku1">
                                 <p><b>Name:</b> <?= htmlspecialchars($userName); ?></p>
                                 <br/>
                                 <br/>
                                 <p><b>Duration:</b> <?= $duration; ?></p>
-                            </div>
-                            <div class="identitasku2">
-                                <?php if ($reservationFound): ?>
-                                    <p><b>Date:</b> <?= htmlspecialchars($reservationDate); ?></p>
-                                    <br/>
-                                    <br/>
-                                    <p><b>Time:</b> <?= htmlspecialchars($reservationTime); ?></p>
-                                <?php else: ?>
-                                    <p>Buat Pesanan Terlebih Dahulu!</p> <!-- This message will show if no reservation is found -->
-                                <?php endif; ?>
-                            </div>
-                        <?php
-                        } else {
-                            echo "<p style=margin:40px;>Buat Pesanan Terlebih Dahulu!</p>"; // Message when form is not submitted
-                        }
-                        ?>
+                        </div>
+                        <div class="identitasku2">
+                            <?php if ($reservationFound): ?>
+                                <p><b>Date:</b> <?= htmlspecialchars($reservationDate); ?></p>
+                                <br/>
+                                <br/>
+                                <p><b>Time:</b> <?= htmlspecialchars($reservationTime); ?></p>
+                            <?php else: ?>
+                                <p>No reservation details found.</p>
+                            <?php endif; ?>
                         </div>    
                     </div>        
                 </div> 
@@ -138,35 +129,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['orderDetails'])) {
                     <div class="line-container">
                         <div class="line"></div><h2>Makanan</h2><div class="line"></div>
                     </div>
-                        <?php 
-                        if (isset($_POST['submit-makanan'])) {
-                            foreach ($menuMap as $item): ?>
-                                <?php if (strpos(strtolower($item['nama_menu']), 'kwetiau') !== false): ?>
-                                    <div class="menumyres">
-                                        <img src="<?= htmlspecialchars($item['foto']); ?>" alt="<?= htmlspecialchars($item['nama_menu']); ?>">
-                                        <h3><?= htmlspecialchars($item['nama_menu']); ?></h3>
-                                        <p><?= htmlspecialchars($item['deskripsi']); ?></p>
-                                        <p class="price">
-                                            <?= $item['quantity']; ?> x Rp<?= number_format($item['harga'], 2, ',', '.'); ?> = 
-                                            Rp<?= number_format($item['harga'] * $item['quantity'], 2, ',', '.'); ?>
-                                        </p>
-                                    </div>
-                                <?php endif; ?>
-                            <?php endforeach; 
-                        } else {
-                            echo "<p style=margin-top:90px;>Buat Pesanan Terlebih Dahulu!</p>";
-                        }
-                        ?>
-                </div>
-                <!-- Minuman Section -->
-                <div class="menuminuman">
-                    <div class="line-container">
-                        <div class="line"></div><h2>Minuman</h2><div class="line"></div>
-                    </div>
-                    
-                        <?php if (isset($_POST['submit-makanan'])): ?>
-                        <?php foreach ($menuMap as $item): ?>
-                            <?php if (strpos(strtolower($item['nama_menu']), 'kwetiau') === false): ?>
+                       
+                            <?php foreach ($menuMap as $item): ?>
+                            <?php if (strpos(strtolower($item['nama_menu']), 'kwetiau') !== false): ?>
                                 <div class="menumyres">
                                     <img src="<?= htmlspecialchars($item['foto']); ?>" alt="<?= htmlspecialchars($item['nama_menu']); ?>">
                                     <h3><?= htmlspecialchars($item['nama_menu']); ?></h3>
@@ -177,12 +142,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['orderDetails'])) {
                                     </p>
                                 </div>
                             <?php endif; ?>
-                        <?php endforeach; ?>
-                    <?php else: 
-                        echo "<p style=margin-top:90px;>Buat Pesanan Terlebih Dahulu!</p>";
-                        ?>
-                    <?php endif; ?>
-
+                            <?php endforeach; ?>
+                </div>
+                <!-- Minuman Section -->
+                <div class="menuminuman">
+                    <div class="line-container">
+                        <div class="line"></div><h2>Minuman</h2><div class="line"></div>
+                    </div>
+                    
+                            <?php foreach ($menuMap as $item): ?>
+                            <?php if (strpos(strtolower($item['nama_menu']), 'kwetiau') === false): ?>
+                                <div class="menumyres">
+                                    <img src="<?= htmlspecialchars($item['foto']); ?>" alt="<?= htmlspecialchars($item['nama_menu']); ?>">
+                                    <h3><?= htmlspecialchars($item['nama_menu']); ?></h3>
+                                    <p><?= htmlspecialchars($item['deskripsi']); ?></p>
+                                        <p class="price">
+                                            <?= $item['quantity']; ?> x Rp<?= number_format($item['harga'], 2, ',', '.'); ?> = 
+                                            Rp<?= number_format($item['harga'] * $item['quantity'], 2, ',', '.'); ?>
+                                        </p>
+                                </div>
+                            <?php endif; ?>
+                            <?php endforeach; ?>
                 </div>   
                 <!-- Total Section -->
                 <div class="totalmyres">
