@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('config.php');
-// Ini komen hasil pull
+
 // Check if the user is logged in
 if (!isset($_SESSION['id_user'])) {
     // Redirect to the login page if not logged in
