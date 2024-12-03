@@ -172,6 +172,36 @@ if (isset($_SESSION['orderDetails'])) {
                 </div>
             </fieldset>
         </div>
+
+        <div class="deleteupdatebutton">
+            <button id="update" class="buttonmyres">Update</button>
+            <button id="delete" class="buttonmyres">Delete</button>
+        </div>
+
     </section>
+
+    <!-- JavaScript to handle delete action -->
+    <script>
+        // Handle the delete button click
+        document.getElementById("delete").addEventListener("click", function() {
+            // Send a request to delete the session data for orderDetails
+            fetch('delete_order.php', {
+                method: 'GET', // Use GET method
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Redirect the user after session data is deleted
+                    window.location.href = "index.php"; // Redirect to the reservation page or any other page
+                } else {
+                    alert("Failed to delete order details.");
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while deleting order details.');
+            });
+        });
+    </script>
+
 </body>
 </html>
