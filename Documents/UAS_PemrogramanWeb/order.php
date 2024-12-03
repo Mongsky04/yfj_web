@@ -39,7 +39,7 @@ $result = $conn->query($sql);
         <div class="cart-total">
             <strong>Total:</strong> Rp <span id="totalAmount">0</span>
         </div>
-        <form id="placeOrderForm" method="POST" action="my-reservasi.php">
+        <form id="placeOrderForm" method="POST" action="payment.php">
             <input type="hidden" name="orderDetails" id="orderDetails">
             <button type="submit" name="submit-makanan">Place Order</button>
         </form>

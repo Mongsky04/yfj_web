@@ -755,3 +755,112 @@ fieldset {
     margin-top:5px;
 }
 
+/* payment */
+
+.paymentsec {
+    display: flex;
+    justify-content: center; /* Pusatkan secara horizontal */
+    align-items: flex-start; /* Mulai dari atas */
+    min-height: 100vh; /* Minimal setinggi layar */
+    padding: 20px; /* Tambahkan padding untuk jarak */
+    overflow-x: hidden; /* Hindari scroll horizontal */
+    background-color: #ddd;
+}
+
+.paymentfieldset {
+    display: flex;
+    flex-direction: column; /* Susun anak-anak secara vertikal */
+    padding: 20px; /* Tambahkan padding */
+    background-color: #fff; /* Warna latar */
+    border-radius: 10px; /* Membuat sudut melengkung */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Tambahkan efek bayangan */
+}
+
+.paymentmethode {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.paymentmethode img {
+    max-width: 50px;
+    max-height: 50px;
+    object-fit: contain; /* Pastikan gambar tidak terdistorsi */
+    margin-bottom: 10px; 
+}
+
+
+.method {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer; /* Agar label terlihat klikable */
+}
+
+.method input[type="radio"] {
+    accent-color: green; /* Warna hijau untuk radio button */
+    margin-top: 10px; /* Jarak antara radio button dan kotak */
+}
+
+.method-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #ccc; /* Batas kotak */
+    border-radius: 10px;
+    padding: 10px;
+    width: 120px; /* Lebar kotak */
+    background-color: #f9f9f9; /* Warna latar kotak */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.method:has(input:checked)::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+}
+
+.buttonpay-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.paybutton {
+    margin-top: 20px; /* Jarak dari konten atas */
+    padding: 10px 20px; /* Ukuran tombol */
+    background-color: #4CAF50; /* Warna tombol */
+    color: white; /* Warna teks */
+    border: none; /* Hilangkan border */
+    border-radius: 5px; /* Tombol melengkung */
+    font-size: 16px; /* Ukuran teks */
+    cursor: pointer; /* Ubah kursor menjadi pointer */
+}
+
+.paybutton:hover {
+    background-color: #45a049; /* Warna saat tombol dihover */
+}
+
+.order-summary {
+    margin: 20px;
+}
+
+#paymentMessage {
+    font-size: 14px;
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    display: none;
+}
