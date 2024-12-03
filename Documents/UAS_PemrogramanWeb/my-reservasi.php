@@ -25,8 +25,7 @@ if (isset($_SESSION['id_user'])) {
     $stmtUser->close();
 
     // Fetch latest reservation for the user
-    $sqlReservasi = "SELECT tanggal_reservasi, waktu_reservasi FROM reservasi 
-                     WHERE id_user = ? ORDER BY id_reservasi DESC LIMIT 1";
+    $sqlReservasi = "SELECT tanggal_reservasi, waktu_reservasi FROM reservasi WHERE id_user = ? ORDER BY id_reservasi DESC LIMIT 1";
     $stmtReservasi = $conn->prepare($sqlReservasi);
     $stmtReservasi->bind_param("i", $id_user);
     $stmtReservasi->execute();
@@ -84,6 +83,10 @@ if (isset($_SESSION['orderDetails']) && !empty($_SESSION['orderDetails'])) {
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="https://i.imgur.com/uTgr4G3.jpeg">
     <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <?php echo '<link href="styles.css" rel="stylesheet">'; ?>
 </head>
 <body>
     <header>
@@ -97,11 +100,31 @@ if (isset($_SESSION['orderDetails']) && !empty($_SESSION['orderDetails'])) {
             <ul class="nav-links">
                 <li><a href="home.php">Home</a></li>
                 <li><a href="index.php">Reservasi</a></li>
-                <li><a href="my-reservasi.php" class="active">My Reservasi</a></li>
+                <!-- <li><a href="my-reservasi.php" class="active">My Reservasi</a></li> -->
                 <li><a href="menu.php">Menu</a></li>
                 <li><a href="contact.php">Kontak</a></li>
                 <li><a href="about.php">About</a></li>
             </ul>
+            <li class="dropdown user user-menu profilmenu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <img src="https://static-00.iconduck.com/assets.00/profile-major-icon-1024x1024-9rtgyx30.png" class="user-image profil" alt="User Image">
+                        <span class="hidden-xs"></span>
+                    </a>
+                    <ul class="dropdown-menu dropmenu">
+                        <!-- User image -->
+                        <li class="user-header">
+                            <img src="https://static-00.iconduck.com/assets.00/profile-major-icon-1024x1024-9rtgyx30.png" class="img-circle profil" alt="User Image">
+                            <p> <?php echo $userName ?></p>
+                            <!-- <small>Login terakhir : 2024-12-03 22:34:36</small> -->
+                        </li>
+                        <!-- Menu Footer-->
+                        <li class="user-footer">
+                            <div class="pull-right">
+                                <a href="logout.php" class="btn btn-default btn-flat">Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+            </li>
         </nav>
     </header>
     <section class="res" id="home">
@@ -109,6 +132,7 @@ if (isset($_SESSION['orderDetails']) && !empty($_SESSION['orderDetails'])) {
             <h1>Your Reservation<br>Will be Held at</h1>
         </div>
     </section>
+    <?php if (isset($_SESSION['orderDetails']) && !empty($_SESSION['orderDetails'])) {?>
     <section class="rus" id="home">
         <div class="rus-c">
             <fieldset>
@@ -178,37 +202,24 @@ if (isset($_SESSION['orderDetails']) && !empty($_SESSION['orderDetails'])) {
                     <div class="line-container">
                         <div class="line"></div><h2>Total</h2><div class="line"></div>
                     </div>
-                    
                     <br/>
                     <br/>
                     <p class="price"><b>Total Amount:</b> Rp<?= number_format($totalAmount, 2, ',', '.'); ?></p>
                 </div>
             </fieldset>
         </div>
-
         <div class="deleteupdatebutton">
             <button id="update" class="buttonmyres">Update</button>
-            <button id="delete" class="buttonmyres">Delete</button>
+            <a href="delete_order.php"><button id="delete" class="buttonmyres">Delete</button></a>
         </div>
-
-<script>
-    document.getElementById("delete").addEventListener("click", function() {
-        fetch('delete_order.php', {
-            method: 'GET',
-        })
-        .then(response => {
-            if (response.ok) {
-                window.location.href = "index.php"; // Redirect after deleting
-            } else {
-                alert("Failed to delete the reservation.");
-            }
-        })
-        .catch(error => {
-            console.error("Error:", error);
-            alert("An error occurred while deleting the reservation.");
-        });
-    });
-</script>
-
+        <?php } else {?>
+        <section class="rus" id="home">
+            <div class="rus-c">
+                <fieldset>
+                    <h1 align="center">ANDA BELUM MEMESAN RESERVASI</h1>
+                </fieldset>
+            </div>
+        </section>
+        <?php }?>
 </body>
 </html>

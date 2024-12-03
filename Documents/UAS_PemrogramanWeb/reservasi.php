@@ -2,14 +2,21 @@
 session_start();
 include('config.php');
 
-// Check if the user is logged in
-if (!isset($_SESSION['id_user'])) {
-    header("Location: index.php?message=Please log in to make a reservation.");
-    exit();
-}
-
 $id_user = $_SESSION['id_user'];
+$userName = 'Guest';
 
+if (isset($_SESSION['id_user'])) {
+    $id_user = $_SESSION['id_user'];
+    
+    // Fetch user name
+    $sqlUser = "SELECT nama FROM user WHERE id_user = ?";
+    $stmtUser = $conn->prepare($sqlUser);
+    $stmtUser->bind_param("i", $id_user);
+    $stmtUser->execute();
+    $stmtUser->bind_result($userName);
+    $stmtUser->fetch();
+    $stmtUser->close();
+}
 // Function to check available tables
 function checkAvailableTable($pax, $conn) {
     $stmt = $conn->prepare("SELECT id_meja FROM meja WHERE slot_kursi >= ? AND jumlah_tersedia > 0 ORDER BY slot_kursi ASC LIMIT 1");
@@ -59,6 +66,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['Continue'])) {
     <link rel="icon" type="image" href="https://i.imgur.com/uTgr4G3.jpeg">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <?php echo '<link href="styles.css" rel="stylesheet">'; ?>
 </head>
 <body>
     <header>
@@ -72,11 +83,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['Continue'])) {
             <ul class="nav-links">
                 <li><a href="home.php">Home</a></li>
                 <li><a href="index.php" class="active">Reservasi</a></li>
-                <li><a href="my-reservasi.php">My Reservasi</a></li>
                 <li><a href="menu.php">Menu</a></li>
                 <li><a href="contact.php">Kontak</a></li>
                 <li><a href="about.php">About</a></li>
             </ul>
+            <li class="dropdown user user-menu profilmenu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <img src="https://static-00.iconduck.com/assets.00/profile-major-icon-1024x1024-9rtgyx30.png" class="user-image profil" alt="User Image">
+                        <span class="hidden-xs"></span>
+                    </a>
+                    <ul class="dropdown-menu dropmenu">
+                        <!-- User image -->
+                        <li class="user-header">
+                            <img src="https://static-00.iconduck.com/assets.00/profile-major-icon-1024x1024-9rtgyx30.png" class="img-circle profil" alt="User Image">
+                            <p> <?php echo $username ?> </p>
+                            <!-- <small>Login terakhir : 2024-12-03 22:34:36</small> -->
+                        </li>
+                        <!-- Menu Footer-->
+                        <li class="user-footer">
+                            <div class="pull-right">
+                                <a href="logout.php" class="btn btn-default btn-flat">Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+            </li>
         </nav>
     </header>
     <section class="res" id="home">

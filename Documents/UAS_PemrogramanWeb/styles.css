@@ -228,6 +228,7 @@ a {
     resize: none;
     border: thin solid #ff7f50;
     border-radius: 5px;
+    width: 100%;
 }
 
 .rus-c label {
@@ -423,7 +424,7 @@ a {
 }
 
 footer {
-    background: #333;
+    /* background: #333; */
     color: #fff;
     text-align: center;
     padding: 20px;
@@ -863,4 +864,31 @@ fieldset {
     border-radius: 5px;
     text-align: center;
     display: none;
+}
+
+.profilmenu {
+    position: relative;
+    left: 1200px;
+    list-style: none;
+}
+
+.user-header {
+    height: 125px;
+    padding: 10px;
+    text-align: center;
+    background-color: #3c8dbc;
+}
+
+.user-footer {
+    padding: 10px;
+}
+
+.dropmenu {
+    min-width: 200px;
+    right: 0;
+    left: auto;
+}
+
+.profil {
+    max-width: 30px;
 }
