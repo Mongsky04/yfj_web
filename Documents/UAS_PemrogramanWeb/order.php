@@ -2,18 +2,71 @@
 session_start(); // Start session at the beginning
 include 'config.php';
 
+// Ensure reservasi_id is set in session, if not redirect to reservasi.php
+if (!isset($_SESSION['reservasi_id'])) {
+    header("Location: reservasi.php?message=Reservation not found.");
+    exit();
+}
+
+$reservasi_id = $_SESSION['reservasi_id']; // Get reservation ID from session
+
 // Fetch menu items from the database
 $sql = "SELECT id_menu, nama_menu, deskripsi, harga, foto FROM menu";
 $result = $conn->query($sql);
 
-// Handle POST request to store order details in session
+// Handle POST request to store order details in session and insert into database
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['orderDetails'])) {
     $orderDetails = json_decode($_POST['orderDetails'], true); // Decode JSON to array
-    $_SESSION['orderDetails'] = $orderDetails; // Save to session
-    header('Location: payment.php'); // Redirect to avoid resubmission
-    exit();
+
+    // Begin transaction to insert data into tables
+    $conn->begin_transaction();
+
+    try {
+        // Step 1: Insert into pesanan_makanan
+        $stmtPesanan = $conn->prepare("INSERT INTO pesanan_makanan (id_reservasi) VALUES (?)");
+        $stmtPesanan->bind_param("i", $reservasi_id);
+        $stmtPesanan->execute();
+        $id_pesanan = $stmtPesanan->insert_id; // Get the generated id_pesanan
+        $stmtPesanan->close();
+
+        // Step 2: Insert order details into detail_pesanan
+        $stmtDetail = $conn->prepare("INSERT INTO detail_pesanan (id_pesanan, id_menu, jumlah, harga) VALUES (?, ?, ?, ?)");
+
+        foreach ($orderDetails as $item) {
+            $id_menu = $item['id'];
+            $jumlah = $item['quantity'];
+            $harga = $item['price'];
+
+            $stmtDetail->bind_param("iiid", $id_pesanan, $id_menu, $jumlah, $harga);
+            $stmtDetail->execute();
+        }
+
+        $stmtDetail->close();
+
+        // Commit the transaction
+        $conn->commit();
+
+        // Store the order details in session
+        $_SESSION['orderDetails'] = $orderDetails;
+
+        // Set session message and redirect to payment page after successful insertion
+        $_SESSION['message'] = "Order placed successfully.";
+        header("Location: payment.php");  // This should now work properly
+        exit();
+
+    } 
+    catch (Exception $e) {
+        // Rollback the transaction on error
+        $conn->rollback();
+
+        // Show an error message
+        $_SESSION['message'] = "Error: " . $e->getMessage();
+        header("Location: payment.php");
+        exit();
+    }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['orderDetails'])) {
 <div class="menu-section">
     <h2>Our Menu</h2>
     <div class="menu-items">
-        <?php while($row = $result->fetch_assoc()): ?>
+        <?php while ($row = $result->fetch_assoc()): ?>
         <div class="menu-item" data-id="<?= $row['id_menu'] ?>" data-price="<?= $row['harga'] ?>">
             <img src="<?= $row['foto'] ?>" alt="<?= $row['nama_menu'] ?>">
             <h3><?= $row['nama_menu'] ?></h3>

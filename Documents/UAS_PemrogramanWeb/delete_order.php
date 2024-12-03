@@ -1,12 +1,24 @@
 <?php
-// Start the session
 session_start();
+include('config.php');
 
-// Destroy the session data for 'orderDetails'
-if (isset($_SESSION['orderDetails'])) {
-    unset($_SESSION['orderDetails']); // Unset the orderDetails session data
+if (isset($_SESSION['id_user'])) {
+    $id_user = $_SESSION['id_user'];
+
+    // Delete active reservation from the database
+    $stmt = $conn->prepare("DELETE FROM reservasi WHERE id_user = ? AND status = 'aktif'");
+    $stmt->bind_param("i", $id_user);
+    $stmt->execute();
+    $stmt->close();
 }
 
-// You can redirect to a specific page after deletion
-header('Location: index.php'); // Redirect to the reservation page or another page
+// Optional: Only destroy session variables related to the reservation
+unset($_SESSION['orderDetails']); // Keep other session variables like user data intact
+
+// Optionally, you can also set a message for the user
+$_SESSION['message'] = "Reservation has been successfully deleted.";
+
+// Redirect to the index or reservation page
+header("Location: index.php");
 exit();
+?>

@@ -38,26 +38,39 @@ if (isset($_SESSION['id_user'])) {
 }
 
 // Check if there are order details in the session from order.php
-if (isset($_SESSION['orderDetails'])) {
+if (isset($_SESSION['orderDetails']) && !empty($_SESSION['orderDetails'])) {
     $orderDetails = $_SESSION['orderDetails']; // Retrieve order details from session
     $menuIds = array_column($orderDetails, 'id');
     $menuIdsString = implode(',', array_map('intval', $menuIds)); // Convert IDs to a safe string format
 
-    $sql = "SELECT id_menu, nama_menu, deskripsi, harga, foto FROM menu WHERE id_menu IN ($menuIdsString)";
-    $result = $conn->query($sql);
+    // Only execute the query if we have valid menuIds
+    if (!empty($menuIdsString)) {
+        $sql = "SELECT id_menu, nama_menu, deskripsi, harga, foto FROM menu WHERE id_menu IN ($menuIdsString)";
+        $result = $conn->query($sql);
 
-    // Map menu details with quantities from the submitted order
-    $menuMap = [];
-    while ($row = $result->fetch_assoc()) {
-        $menuMap[$row['id_menu']] = $row;
-        $menuMap[$row['id_menu']]['quantity'] = 0; // Initialize quantity
-    }
-
-    foreach ($orderDetails as $item) {
-        if (isset($menuMap[$item['id']])) {
-            $menuMap[$item['id']]['quantity'] += $item['quantity']; // Sum up the quantities
-            $totalAmount += $menuMap[$item['id']]['harga'] * $item['quantity'];
+        if ($result === false) {
+            // Query failed, display the error message
+            echo "Error executing query: " . $conn->error;
+            exit();  // Stop execution to avoid further errors
         }
+
+        // Map menu details with quantities from the submitted order
+        $menuMap = [];
+        while ($row = $result->fetch_assoc()) {
+            $menuMap[$row['id_menu']] = $row;
+            $menuMap[$row['id_menu']]['quantity'] = 0; // Initialize quantity
+        }
+
+        // Summing quantities and total amount
+        foreach ($orderDetails as $item) {
+            if (isset($menuMap[$item['id']])) {
+                $menuMap[$item['id']]['quantity'] += $item['quantity']; // Sum up the quantities
+                $totalAmount += $menuMap[$item['id']]['harga'] * $item['quantity'];
+            }
+        }
+    } else {
+        echo "Error: No valid menu items found in the order.";
+        exit(); // Stop execution if no valid menu items
     }
 }
 ?>
@@ -178,30 +191,24 @@ if (isset($_SESSION['orderDetails'])) {
             <button id="delete" class="buttonmyres">Delete</button>
         </div>
 
-    </section>
-
-    <!-- JavaScript to handle delete action -->
-    <script>
-        // Handle the delete button click
-        document.getElementById("delete").addEventListener("click", function() {
-            // Send a request to delete the session data for orderDetails
-            fetch('delete_order.php', {
-                method: 'GET', // Use GET method
-            })
-            .then(response => {
-                if (response.ok) {
-                    // Redirect the user after session data is deleted
-                    window.location.href = "index.php"; // Redirect to the reservation page or any other page
-                } else {
-                    alert("Failed to delete order details.");
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('An error occurred while deleting order details.');
-            });
+<script>
+    document.getElementById("delete").addEventListener("click", function() {
+        fetch('delete_order.php', {
+            method: 'GET',
+        })
+        .then(response => {
+            if (response.ok) {
+                window.location.href = "index.php"; // Redirect after deleting
+            } else {
+                alert("Failed to delete the reservation.");
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("An error occurred while deleting the reservation.");
         });
-    </script>
+    });
+</script>
 
 </body>
 </html>
