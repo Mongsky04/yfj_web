@@ -1,51 +1,19 @@
 <?php
-session_start();
-include 'config.php'; // Ensure the database connection is included
+session_start();  // Start the session to access session variables
 
-// Initialize variables
-$orderDetails = [];
-$totalAmount = 0;
-$userName = 'Guest';
-$reservationDate = '';
-$reservationTime = '';
-$reservationFound = false;
-
-// Fetch user information if logged in
-if (isset($_SESSION['id_user'])) {
-    $id_user = $_SESSION['id_user'];
+// Check if order details exist in session
+if (isset($_SESSION['orderDetails'])) {
+    $orderDetails = $_SESSION['orderDetails'];
+    $totalAmount = 0;
     
-    // Fetch user name
-    $sqlUser = "SELECT nama FROM user WHERE id_user = ?";
-    $stmtUser = $conn->prepare($sqlUser);
-    $stmtUser->bind_param("i", $id_user);
-    $stmtUser->execute();
-    $stmtUser->bind_result($userName);
-    $stmtUser->fetch();
-    $stmtUser->close();
-
-    // Fetch latest reservation for the user
-    $sqlReservasi = "SELECT tanggal_reservasi, waktu_reservasi FROM reservasi 
-                     WHERE id_user = ? ORDER BY id_reservasi DESC LIMIT 1";
-    $stmtReservasi = $conn->prepare($sqlReservasi);
-    $stmtReservasi->bind_param("i", $id_user);
-    $stmtReservasi->execute();
-    $stmtReservasi->bind_result($reservationDate, $reservationTime);
-    if ($stmtReservasi->fetch()) {
-        $reservationFound = true; // Flag if a reservation is found
+    // Calculate the total amount for the order
+    foreach ($orderDetails as $item) {
+        $totalAmount += $item['price'] * $item['quantity'];
     }
-    $stmtReservasi->close();
-}
-
-// Check if the form is submitted with order details
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['orderDetails'])) {
-    $orderDetails = json_decode($_POST['orderDetails'], true);
-
-    // Process order details and calculate total amount
-    if (!empty($orderDetails)) {
-        foreach ($orderDetails as $item) {
-            $totalAmount += $item['price'] * $item['quantity'];
-        }
-    }
+} else {
+    // If no order details found in session, redirect to order page or show error
+    header('Location: order.php');
+    exit();  // Prevent further script execution if no order details are found
 }
 ?>
 
@@ -94,9 +62,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['orderDetails'])) {
             <div class="order-summary">
                 <p><b>Menu Items:</b> 
                     <?php
+                    // Show the names of the menu items in the order
                     $menuNames = [];
                     foreach ($orderDetails as $item) {
-                        $menuNames[] = $item['name'];
+                        $menuNames[] = $item['name'] . " x" . $item['quantity'];
                     }
                     echo implode(', ', $menuNames);
                     ?>

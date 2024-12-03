@@ -1,8 +1,18 @@
 <?php
+session_start(); // Start session at the beginning
 include 'config.php';
 
+// Fetch menu items from the database
 $sql = "SELECT id_menu, nama_menu, deskripsi, harga, foto FROM menu";
 $result = $conn->query($sql);
+
+// Handle POST request to store order details in session
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['orderDetails'])) {
+    $orderDetails = json_decode($_POST['orderDetails'], true); // Decode JSON to array
+    $_SESSION['orderDetails'] = $orderDetails; // Save to session
+    header('Location: payment.php'); // Redirect to avoid resubmission
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +49,7 @@ $result = $conn->query($sql);
         <div class="cart-total">
             <strong>Total:</strong> Rp <span id="totalAmount">0</span>
         </div>
-        <form id="placeOrderForm" method="POST" action="payment.php">
+        <form id="placeOrderForm" method="POST" action="order.php">
             <input type="hidden" name="orderDetails" id="orderDetails">
             <button type="submit" name="submit-makanan">Place Order</button>
         </form>
@@ -49,6 +59,7 @@ $result = $conn->query($sql);
 <script>
 let cart = [];
 
+// Add event listener to each "add to cart" button
 document.querySelectorAll('.add-to-cart').forEach(button => {
     button.addEventListener('click', () => {
         const item = button.parentElement;
@@ -61,6 +72,7 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
     });
 });
 
+// Add item to cart
 function addToCart(id, name, price) {
     const existingItem = cart.find(item => item.id === id);
     if (existingItem) {
@@ -70,6 +82,7 @@ function addToCart(id, name, price) {
     }
 }
 
+// Update the cart UI and hidden input
 function updateCart() {
     const cartItemsDiv = document.getElementById('cartItems');
     const totalAmountSpan = document.getElementById('totalAmount');
@@ -78,21 +91,28 @@ function updateCart() {
 
     cart.forEach(item => {
         total += item.price * item.quantity;
-        cartItemsDiv.innerHTML += `<p>${item.name} x${item.quantity} - Rp ${item.price * item.quantity} <span onclick="removeFromCart(${item.id})" class="remove-item">✖</span></p>`;
+        cartItemsDiv.innerHTML += `
+            <p>
+                ${item.name} x${item.quantity} - Rp ${item.price * item.quantity}
+                <span onclick="removeFromCart('${item.id}')" class="remove-item">✖</span>
+            </p>`;
     });
 
     totalAmountSpan.innerText = total.toLocaleString();
-    document.getElementById('orderDetails').value = JSON.stringify(cart);
+    document.getElementById('orderDetails').value = JSON.stringify(cart); // Save cart data as JSON
 }
 
+// Remove item from cart
 function removeFromCart(id) {
-    cart = cart.filter(item => item.id !== id.toString());
+    cart = cart.filter(item => item.id !== id);
     updateCart();
 }
 
+// Toggle cart dropdown visibility
 function toggleCartDropdown() {
     document.getElementById('cartDropdown').classList.toggle('show');
 }
 </script>
+
 </body>
 </html>
