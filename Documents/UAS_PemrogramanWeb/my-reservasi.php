@@ -191,6 +191,13 @@ if (isset($_SESSION['orderDetails']) && !empty($_SESSION['orderDetails'])) {
             <button id="delete" class="buttonmyres">Delete</button>
         </div>
 
+
+<script>
+    document.getElementById("update").addEventListener("click", function () {
+        window.location.href = "update.php";
+    });
+</script>
+
 <script>
     document.getElementById("delete").addEventListener("click", function() {
         fetch('delete_order.php', {
