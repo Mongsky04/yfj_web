@@ -5,6 +5,7 @@ include('config.php');
 if (isset($_SESSION['id_user'])) {
     $id_user = $_SESSION['id_user'];
 
+
     // Fetch the active reservation id for the user
     $stmt = $conn->prepare("SELECT id_reservasi FROM reservasi WHERE id_user = ? AND status = 'aktif'");
     $stmt->bind_param("i", $id_user);
@@ -53,7 +54,7 @@ if (isset($_SESSION['id_user'])) {
     }
 
     // Redirect to the index or reservation page
-    header("Location: index.php");
+    header("Location: my-reservasi.php");
     exit();
 }
 ?>

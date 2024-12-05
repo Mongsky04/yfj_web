@@ -1,3 +1,12 @@
+<?php
+session_start(); // Start session to fetch the stored data
+include('config.php');
+// Check if the user is logged in
+if (isset($_SESSION['id_user'])) {
+    header("Location: my-reservasi.php?");
+    exit();
+}?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +32,7 @@
             <ul class="nav-links">
                 <li><a href="home.php">Home</a></li>
                 <li><a href="index.php" class="active">Reservasi</a></li>
-                <li><a href="my-reservasi.php">My Reservasi</a></li>
+                <!-- <li><a href="my-reservasi.php">My Reservasi</a></li> -->
                 <li><a href="menu.php">Menu</a></li>
                 <li><a href="contact.php">Kontak</a></li>
                 <li><a href="about.php">About</a></li>

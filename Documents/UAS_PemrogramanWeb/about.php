@@ -20,7 +20,7 @@
             <ul class="nav-links">
                 <li><a href="home.php">Home</a></li>
                 <li><a href="index.php">Reservasi</a></li>
-                <li><a href="#my-reservasi">My Reservasi</a></li>
+                <!-- <li><a href="#my-reservasi">My Reservasi</a></li> -->
                 <li><a href="menu.php">Menu</a></li>
                 <li><a href="contact.php">Kontak</a></li>
                 <li><a href="about.php" class="active">About</a></li>
