@@ -6,6 +6,7 @@
     <title>Kwetiau Djuara</title>
     <link rel="icon" type="image" href="https://i.imgur.com/uTgr4G3.jpeg">
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -21,7 +22,7 @@
                 <li><a href="home.php" class="active">Home</a></li>
                 <li><a href="index.php">Reservasi</a></li>
                 <li><a href="menu.php">Menu</a></li>
-                <li><a href="contact.php">Kontak</a></li>
+                <li><a href="contact.php">Contact</a></li>
                 <li><a href="about.php">About</a></li>
             </ul>
         </nav>
@@ -38,7 +39,7 @@
     </section>
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Kwetiau Djuara.</p>
+            <p>&copy; 2024 Kwetiau Djuara</p>
         </div>
     </footer>
 </body>

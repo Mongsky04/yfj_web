@@ -6,6 +6,7 @@
     <title>About Us - Kwetiau Djuara</title>
     <link rel="icon" type="image" href="https://i.imgur.com/uTgr4G3.jpeg">
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -22,7 +23,7 @@
                 <li><a href="index.php">Reservasi</a></li>
                 <!-- <li><a href="#my-reservasi">My Reservasi</a></li> -->
                 <li><a href="menu.php">Menu</a></li>
-                <li><a href="contact.php">Kontak</a></li>
+                <li><a href="contact.php">Contact</a></li>
                 <li><a href="about.php" class="active">About</a></li>
             </ul>
         </nav>
@@ -81,13 +82,13 @@
     </section>
 
     <footer>
-        <p>Find us on Social Media!</p>
+            <p>Find us on Social Media!</p>
         <br>
         <div class="social-media-icons">
-            <a href="#"><img src="https://img.icons8.com/ios-filled/50/000000/facebook-new.png" alt="Facebook"></a>
-            <a href="#"><img src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png" alt="Instagram"></a>
-            <a href="#"><img src="https://img.icons8.com/ios-filled/50/000000/twitter.png" alt="Twitter"></a>
-            <a href="#"><img src="https://img.icons8.com/ios-filled/50/000000/tiktok.png" alt="TikTok"></a>
+            <a href="https://facebook.com"><img src="https://img.icons8.com/ios-filled/50/000000/facebook-new.png" alt="Facebook"></a>
+            <a href="https://instagram.com"><img src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png" alt="Instagram"></a>
+            <a href="https://x.com"><img src="https://img.icons8.com/?size=100&id=phOKFKYpe00C&format=png&color=000000" alt="X"></a>
+            <a href="https://tiktok.com"><img src="https://img.icons8.com/ios-filled/50/000000/tiktok.png" alt="TikTok"></a>
         </div>
     </footer>
 </body>

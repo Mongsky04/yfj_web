@@ -38,9 +38,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['Update'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kwetiau Djuara - Update Reservation</title>
+    <title>Update Reservation - Kwetiau Djuara</title>
     <link rel="icon" type="image" href="https://i.imgur.com/uTgr4G3.jpeg">
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -77,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['Update'])) {
                 <input type="date" name="date" id="date" required /><br /><br />
                 <label for="time">Select Reservation Time</label><br />
                 <input type="time" name="time" id="time" required /><br /><br />
-                <input type="submit" name="Update" value="Update Reservation" 
+                <input type="submit" name="Update" value="Update Reservation"
                     style="background-color: #4CAF50; font-weight: bold; border: none; color: white;" />
             </form>
         </div>

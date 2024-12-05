@@ -424,8 +424,9 @@ a {
 }
 
 footer {
-    /* background: #333; */
-    color: #fff;
+    background-color: white;
+    opacity: 0.9;
+    color: black;
     text-align: center;
     padding: 20px;
 }
@@ -614,7 +615,7 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    
+
 }
 
 .identitasku1 {
@@ -788,7 +789,7 @@ fieldset {
     max-width: 50px;
     max-height: 50px;
     object-fit: contain; /* Pastikan gambar tidak terdistorsi */
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
 }
 
 
@@ -891,4 +892,21 @@ fieldset {
 
 .profil {
     max-width: 30px;
+}
+
+/* Transisi Fade */
+/* CSS for Page Transitions */
+body {
+    opacity: 0; /* Awal halaman di-hidden */
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Saat halaman dimuat (fade-in) */
+body.fade-in {
+    opacity: 1;
+}
+
+/* Saat halaman keluar (fade-out) */
+body.fade-out {
+    opacity: 0;
 }

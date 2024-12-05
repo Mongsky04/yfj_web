@@ -12,12 +12,13 @@ if (isset($_SESSION['id_user'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kwetiau Djuara</title>
+    <title>Reservasi - Kwetiau Djuara</title>
     <link rel="icon" type="image" href="https://i.imgur.com/uTgr4G3.jpeg">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <?php echo '<link href="styles.css" rel="stylesheet">'; ?>
+    <script src="script.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -34,7 +35,7 @@ if (isset($_SESSION['id_user'])) {
                 <li><a href="index.php" class="active">Reservasi</a></li>
                 <!-- <li><a href="my-reservasi.php">My Reservasi</a></li> -->
                 <li><a href="menu.php">Menu</a></li>
-                <li><a href="contact.php">Kontak</a></li>
+                <li><a href="contact.php">Contact</a></li>
                 <li><a href="about.php">About</a></li>
             </ul>
         </nav>
@@ -80,7 +81,7 @@ if (isset($_SESSION['id_user'])) {
                       }
                     }
                 </script>
-            </form>        
+            </form>
         </div>
     </section>
 </body>

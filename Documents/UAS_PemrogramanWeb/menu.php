@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kwetiau Djuara - Menu</title>
+    <title>Menu - Kwetiau Djuara</title>
     <link rel="icon" type="image" href="https://i.imgur.com/uTgr4G3.jpeg">
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -22,7 +23,7 @@
                 <li><a href="index.php">Reservasi</a></li>
                 <!-- <li><a href="my-reservasi.php">My Reservasi</a></li> -->
                 <li><a href="menu.php" class="active">Menu</a></li>
-                <li><a href="contact.php">Kontak</a></li>
+                <li><a href="contact.php">Contact</a></li>
                 <li><a href="about.php">About</a></li>
             </ul>
         </nav>
@@ -59,44 +60,44 @@
                     </div>
                     <div class="menu-item">
                         <img src="https://rasamalaysia.com/wp-content/uploads/2009/11/char-koay-teow-thumb-500x500.jpg" alt="Kwetiau Sapi">
-                        <h3>Kwetiau Sapi</h3>
-                        <p>Mi pipih dengan irisan daging sapi yang dimasak sempurna, disajikan dengan sayuran dan bumbu khas yang lezat.</p>
+                        <h3>Kwetiau Goreng</h3>
+                        <p>Kwetiau yang digoreng dengan bumbu kecap manis, sayuran, dan pilihan daging.</p>
                         <p class="price">Rp40,000.00</p>
                     </div>
                     <div class="menu-item">
                         <img src="https://www.homemadeitaliancooking.com/wp-content/uploads/2016/09/char-kway-teow-3-2.jpg" alt="Kwetiau Sapi">
-                        <h3>Kwetiau Sapi</h3>
-                        <p>Mi pipih dengan irisan daging sapi yang dimasak sempurna, disajikan dengan sayuran dan bumbu khas yang lezat.</p>
+                        <h3>Kwetiau Bebek</h3>
+                        <p>Kwetiau dengan bebek panggang yang gurih dan empuk.</p>
                         <p class="price">Rp40,000.00</p>
                     </div>
                     <div class="menu-item">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK6Eah8vmE9zebJqD1VjJw2WHadHaKFUaB3Q&s" alt="Kwetiau Sapi">
-                        <h3>Kwetiau Sapi</h3>
-                        <p>Mi pipih dengan irisan daging sapi yang dimasak sempurna, disajikan dengan sayuran dan bumbu khas yang lezat.</p>
+                        <h3>Kwetiau Telur</h3>
+                        <p>Kwetiau sederhana dengan telur orak-arik yang lembut dan gurih.</p>
                         <p class="price">Rp40,000.00</p>
                     </div>
                     <div class="menu-item">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_ImGH0h7lr_19MfRnI4mYFBDwmWRfrEdHfg&s" alt="Kwetiau Sapi">
-                        <h3>Kwetiau Sapi</h3>
-                        <p>Mi pipih dengan irisan daging sapi yang dimasak sempurna, disajikan dengan sayuran dan bumbu khas yang lezat.</p>
+                        <h3>Kwetiau Kari</h3>
+                        <p>Kwetiau dalam kuah kari yang kaya rempah dan penuh rasa.</p>
                         <p class="price">Rp40,000.00</p>
                     </div>
                     <div class="menu-item">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROG1jBhK9WbtxCGda36RDUbWdzVIOwUrqktA&s" alt="Kwetiau Sapi">
-                        <h3>Kwetiau Sapi</h3>
-                        <p>Mi pipih dengan irisan daging sapi yang dimasak sempurna, disajikan dengan sayuran dan bumbu khas yang lezat.</p>
+                        <h3>Kwetiau Siram</h3>
+                        <p>Kwetiau disajikan dengan saus kental berisi sayuran dan daging.</p>
                         <p class="price">Rp40,000.00</p>
                     </div>
                     <div class="menu-item">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkBcL7GOic4ga9II5CWyfsa2YS2CYNvVUh5A&s" alt="Kwetiau Sapi">
-                        <h3>Kwetiau Sapi</h3>
-                        <p>Mi pipih dengan irisan daging sapi yang dimasak sempurna, disajikan dengan sayuran dan bumbu khas yang lezat.</p>
+                        <h3>Kwetiau Pedas</h3>
+                        <p>Kwetiau berbumbu cabai yang pedas menggugah selera.</p>
                         <p class="price">Rp40,000.00</p>
                     </div>
                     <div class="menu-item">
                         <img src="https://poshjournal.com/wp-content/uploads/2021/03/char-kway-teow-5.jpg" alt="Kwetiau Sapi">
-                        <h3>Kwetiau Sapi</h3>
-                        <p>Mi pipih dengan irisan daging sapi yang dimasak sempurna, disajikan dengan sayuran dan bumbu khas yang lezat.</p>
+                        <h3>Kwetiau Jamur</h3>
+                        <p>Kwetiau goreng atau kuah dengan jamur segar dan bumbu gurih.</p>
                         <p class="price">Rp40,000.00</p>
                     </div>
                 </div>
@@ -134,7 +135,7 @@
             </div>
         </div>
     </section>
-    
+
 
 </body>
 </html>

@@ -6,6 +6,7 @@
     <title>Contact Us - Kwetiau Djuara</title>
     <link rel="icon" type="image" href="https://i.imgur.com/uTgr4G3.jpeg">
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -22,7 +23,7 @@
                 <li><a href="index.php">Reservasi</a></li>
                 <!-- <li><a href="#my-reservasi">My Reservasi</a></li> -->
                 <li><a href="menu.php">Menu</a></li>
-                <li><a href="contact.php" class="active">Kontak</a></li>
+                <li><a href="contact.php" class="active">Contact</a></li>
                 <li><a href="about.php">About</a></li>
             </ul>
         </nav>
@@ -48,7 +49,7 @@
                 <label>Message</label><br/>
                 <textarea rows="10" cols="115" name="message" placeholder="Message"></textarea><br/><br/>
                 <input type="submit" name="Send" value="Send" style="background-color: #ff7f50; font-weight: bold;"/>
-            </form>        
+            </form>
         </div>
     </section>
 </body>
@@ -77,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['Send'])) {
         $message = $conn->real_escape_string($message);
 
         // Insert data into the database
-        $sql = "INSERT INTO contacts_input (name, email, phone_number, message) 
+        $sql = "INSERT INTO contacts_input (name, email, phone_number, message)
                 VALUES ('$name', '$email', '$phone_number', '$message')";
 
         if ($conn->query($sql) === TRUE) {

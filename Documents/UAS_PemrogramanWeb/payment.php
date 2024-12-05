@@ -5,7 +5,7 @@ session_start();  // Start the session to access session variables
 if (isset($_SESSION['orderDetails'])) {
     $orderDetails = $_SESSION['orderDetails'];
     $totalAmount = 0;
-    
+
     // Calculate the total amount for the order
     foreach ($orderDetails as $item) {
         $totalAmount += $item['price'] * $item['quantity'];
@@ -22,14 +22,15 @@ if (isset($_SESSION['orderDetails'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment</title>
+    <title>Payment - Kwetiau Djuara</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
     <script>
         // Function to handle the payment process and redirect after success
         function handlePayment() {
             // Show the "Payment succeeded" message
             document.getElementById('paymentMessage').style.display = 'block';
-            
+
             // Hide the pay button after payment
             document.getElementById('payButton').style.display = 'none';
 
@@ -60,7 +61,7 @@ if (isset($_SESSION['orderDetails'])) {
 
             <!-- Show all the menu names -->
             <div class="order-summary">
-                <p><b>Menu Items:</b> 
+                <p><b>Menu Items:</b>
                     <?php
                     // Show the names of the menu items in the order
                     $menuNames = [];
@@ -69,7 +70,7 @@ if (isset($_SESSION['orderDetails'])) {
                     }
                     echo implode(', ', $menuNames);
                     ?>
-                </p> 
+                </p>
                 <p class="price"><b>Total Amount:</b> Rp<?= number_format($totalAmount, 2, ',', '.'); ?></p>
             </div>
 

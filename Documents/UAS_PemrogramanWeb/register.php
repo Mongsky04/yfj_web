@@ -90,6 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Kwetiau Djuara - Register</title>
     <link rel="icon" type="image" href="https://i.imgur.com/uTgr4G3.jpeg">
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -126,16 +127,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label>Name</label><br/>
                 <input type="text" name="nama" placeholder="Nama" value="<?php echo htmlspecialchars($nama); ?>"/>
                 <span class="error-message"><?php echo $nama_err; ?></span><br/><br/>
+
                 <label>Phone Number</label><br/>
-                <input type="number" name="nomor_telepon" placeholder="Nomor_telepon" value="<?php echo htmlspecialchars($nomor_telepon); ?>"/>
+                <input type="number" name="nomor_telepon" placeholder="Nomor Telepon" value="<?php echo htmlspecialchars($nomor_telepon); ?>" minlength="8" maxlength="13"/>
                 <span class="error-message"><?php echo $nomor_telepon_err; ?></span><br/><br/>
+
                 <label>E-mail</label><br/>
-                <input type="email" name="email" placeholder="Email" value="<?php echo htmlspecialchars($email); ?>"/>
+                <input type="email" name="email" placeholder="E-mail" value="<?php echo htmlspecialchars($email); ?>"/>
                 <span class="error-message"><?php echo $email_err; ?></span><br/><br/>
+
                 <label>Password</label><br/>
                 <input type="password" name="password" placeholder="Password" id="myInput" value="<?php echo htmlspecialchars($password); ?>"/>
                 <span class="error-message"><?php echo $password_err; ?></span><br/>
-                <input type="checkbox" onclick="myFunction()"> Show Password 
+                <input type="checkbox" onclick="myFunction()"> Show Password
                 <p>Sudah punya akun? <a href="index.php">Login di sini</a>.</p><br><br><br>
                 <input type="submit" name="register" value="Register" style="background-color: #ff7f50; font-weight: bold;"/>
                 <script>
@@ -148,7 +152,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                       }
                     }
                 </script>
-            </form>        
+            </form>
         </div>
     </section>
 </body>

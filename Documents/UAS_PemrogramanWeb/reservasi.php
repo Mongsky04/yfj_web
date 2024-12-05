@@ -7,7 +7,7 @@ $userName = 'Guest';
 
 if (isset($_SESSION['id_user'])) {
     $id_user = $_SESSION['id_user'];
-    
+
     // Fetch user name
     $sqlUser = "SELECT nama FROM user WHERE id_user = ?";
     $stmtUser = $conn->prepare($sqlUser);
@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['Continue'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kwetiau Djuara - Reservasi</title>
+    <title>Reservasi - Kwetiau Djuara</title>
     <link rel="icon" type="image" href="https://i.imgur.com/uTgr4G3.jpeg">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:wght@400;700&display=swap" rel="stylesheet">
@@ -70,6 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['Continue'])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <?php echo '<link href="styles.css" rel="stylesheet">'; ?>
+    <script src="script.js"></script>
 </head>
 <body>
     <header>

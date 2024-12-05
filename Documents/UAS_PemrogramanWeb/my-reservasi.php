@@ -14,7 +14,7 @@ $reservationFound = false;
 // Fetch user information
 if (isset($_SESSION['id_user'])) {
     $id_user = $_SESSION['id_user'];
-    
+
     // Fetch user name
     $sqlUser = "SELECT nama FROM user WHERE id_user = ?";
     $stmtUser = $conn->prepare($sqlUser);
@@ -79,8 +79,9 @@ if (isset($_SESSION['orderDetails']) && !empty($_SESSION['orderDetails'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Reservation</title>
+    <title>My Reservation - Kwetiau Djuara</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
     <link rel="icon" href="https://i.imgur.com/uTgr4G3.jpeg">
     <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -154,9 +155,9 @@ if (isset($_SESSION['orderDetails']) && !empty($_SESSION['orderDetails'])) {
                             <?php else: ?>
                                 <p>No reservation details found.</p>
                             <?php endif; ?>
-                        </div>    
-                    </div>        
-                </div> 
+                        </div>
+                    </div>
+                </div>
                 <!-- Makanan Section -->
                 <div class="menumakanan">
                     <div class="line-container">
@@ -170,7 +171,7 @@ if (isset($_SESSION['orderDetails']) && !empty($_SESSION['orderDetails'])) {
                             <h3><?= htmlspecialchars($item['nama_menu']); ?></h3>
                             <p><?= htmlspecialchars($item['deskripsi']); ?></p>
                             <p class="price">
-                                <?= $item['quantity']; ?> x Rp<?= number_format($item['harga'], 2, ',', '.'); ?> = 
+                                <?= $item['quantity']; ?> x Rp<?= number_format($item['harga'], 2, ',', '.'); ?> =
                                 Rp<?= number_format($item['harga'] * $item['quantity'], 2, ',', '.'); ?>
                             </p>
                         </div>
@@ -190,13 +191,13 @@ if (isset($_SESSION['orderDetails']) && !empty($_SESSION['orderDetails'])) {
                             <h3><?= htmlspecialchars($item['nama_menu']); ?></h3>
                             <p><?= htmlspecialchars($item['deskripsi']); ?></p>
                             <p class="price">
-                                <?= $item['quantity']; ?> x Rp<?= number_format($item['harga'], 2, ',', '.'); ?> = 
+                                <?= $item['quantity']; ?> x Rp<?= number_format($item['harga'], 2, ',', '.'); ?> =
                                 Rp<?= number_format($item['harga'] * $item['quantity'], 2, ',', '.'); ?>
                             </p>
                         </div>
                     <?php endif; ?>
                     <?php endforeach; ?>
-                </div>   
+                </div>
                 <!-- Total Section -->
                 <div class="totalmyres">
                     <div class="line-container">
@@ -222,7 +223,7 @@ if (isset($_SESSION['orderDetails']) && !empty($_SESSION['orderDetails'])) {
             </div>
         </section>
         <?php }?>
-  
+
 <script>
     document.getElementById("update").addEventListener("click", function () {
         window.location.href = "update.php";

@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['orderDetails'])) {
         header("Location: payment.php");  // This should now work properly
         exit();
 
-    } 
+    }
     catch (Exception $e) {
         // Rollback the transaction on error
         $conn->rollback();
@@ -73,8 +73,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['orderDetails'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Menu</title>
+    <title>Order Menu - Kwetiau Djuara</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
 </head>
 <body>
 <div class="menu-section">
