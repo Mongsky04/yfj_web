@@ -1,21 +1,18 @@
 <?php
-session_start(); // Start session to fetch the stored data
+session_start();
 include('config.php');
 
-// Placeholder for fetched data
 $orderDetails = [];
 $totalAmount = 0;
 $userName = 'Guest';
 $reservationDate = '';
 $reservationTime = '';
-$duration = '90 Minutes'; // Default duration
+$duration = '90 Minutes';
 $reservationFound = false;
 
-// Fetch user information
 if (isset($_SESSION['id_user'])) {
     $id_user = $_SESSION['id_user'];
 
-    // Fetch user name
     $sqlUser = "SELECT nama FROM user WHERE id_user = ?";
     $stmtUser = $conn->prepare($sqlUser);
     $stmtUser->bind_param("i", $id_user);
@@ -24,52 +21,46 @@ if (isset($_SESSION['id_user'])) {
     $stmtUser->fetch();
     $stmtUser->close();
 
-    // Fetch latest reservation for the user
     $sqlReservasi = "SELECT tanggal_reservasi, waktu_reservasi FROM reservasi WHERE id_user = ? ORDER BY id_reservasi DESC LIMIT 1";
     $stmtReservasi = $conn->prepare($sqlReservasi);
     $stmtReservasi->bind_param("i", $id_user);
     $stmtReservasi->execute();
     $stmtReservasi->bind_result($reservationDate, $reservationTime);
     if ($stmtReservasi->fetch()) {
-        $reservationFound = true; // Flag if a reservation is found
+        $reservationFound = true;
     }
     $stmtReservasi->close();
 }
 
-// Check if there are order details in the session from order.php
 if (isset($_SESSION['orderDetails']) && !empty($_SESSION['orderDetails'])) {
-    $orderDetails = $_SESSION['orderDetails']; // Retrieve order details from session
+    $orderDetails = $_SESSION['orderDetails'];
     $menuIds = array_column($orderDetails, 'id');
-    $menuIdsString = implode(',', array_map('intval', $menuIds)); // Convert IDs to a safe string format
+    $menuIdsString = implode(',', array_map('intval', $menuIds));
 
-    // Only execute the query if we have valid menuIds
     if (!empty($menuIdsString)) {
         $sql = "SELECT id_menu, nama_menu, deskripsi, harga, foto FROM menu WHERE id_menu IN ($menuIdsString)";
         $result = $conn->query($sql);
 
         if ($result === false) {
-            // Query failed, display the error message
             echo "Error executing query: " . $conn->error;
-            exit();  // Stop execution to avoid further errors
+            exit(); 
         }
 
-        // Map menu details with quantities from the submitted order
         $menuMap = [];
         while ($row = $result->fetch_assoc()) {
             $menuMap[$row['id_menu']] = $row;
-            $menuMap[$row['id_menu']]['quantity'] = 0; // Initialize quantity
+            $menuMap[$row['id_menu']]['quantity'] = 0;
         }
 
-        // Summing quantities and total amount
         foreach ($orderDetails as $item) {
             if (isset($menuMap[$item['id']])) {
-                $menuMap[$item['id']]['quantity'] += $item['quantity']; // Sum up the quantities
+                $menuMap[$item['id']]['quantity'] += $item['quantity'];
                 $totalAmount += $menuMap[$item['id']]['harga'] * $item['quantity'];
             }
         }
     } else {
         echo "Error: No valid menu items found in the order.";
-        exit(); // Stop execution if no valid menu items
+        exit();
     }
 }
 ?>
@@ -100,8 +91,7 @@ if (isset($_SESSION['orderDetails']) && !empty($_SESSION['orderDetails'])) {
             </div>
             <ul class="nav-links">
                 <li><a href="home.php">Home</a></li>
-                <li><a href="index.php">Reservasi</a></li>
-                <!-- <li><a href="my-reservasi.php" class="active">My Reservasi</a></li> -->
+                <li><a href="index.php" class="active">Reservasi</a></li>
                 <li><a href="menu.php">Menu</a></li>
                 <li><a href="contact.php">Kontak</a></li>
                 <li><a href="about.php">About</a></li>
@@ -214,39 +204,15 @@ if (isset($_SESSION['orderDetails']) && !empty($_SESSION['orderDetails'])) {
             <a href="delete_order.php"><button id="delete" class="buttonmyres">Delete</button></a>
         </div>
 
-        <?php } else {?>
-        <section class="rus" id="home">
-            <div class="rus-c">
-                <fieldset>
-                    <h1 align="center">ANDA BELUM MEMESAN RESERVASI</h1>
-                </fieldset>
-            </div>
-        </section>
-        <?php }?>
+        
+        <?php } else {
+            header('Location: reservasi.php');
+        }?>
 
 <script>
     document.getElementById("update").addEventListener("click", function () {
         window.location.href = "update.php";
     });
 </script>
-
-<!-- <script>
-    document.getElementById("delete").addEventListener("click", function() {
-        fetch('delete_order.php', {
-            method: 'GET',
-        })
-        .then(response => {
-            if (response.ok) {
-                window.location.href = "index.php"; // Redirect after deleting
-            } else {
-                alert("Failed to delete the reservation.");
-            }
-        })
-        .catch(error => {
-            console.error("Error:", error);
-            alert("An error occurred while deleting the reservation.");
-        });
-    });
-</script> -->
 </body>
 </html>

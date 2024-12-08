@@ -4,11 +4,11 @@ include('config.php');
 
 $id_user = $_SESSION['id_user'];
 $userName = 'Guest';
+$nama = $_SESSION['nama'];
 
 if (isset($_SESSION['id_user'])) {
     $id_user = $_SESSION['id_user'];
 
-    // Fetch user name
     $sqlUser = "SELECT nama FROM user WHERE id_user = ?";
     $stmtUser = $conn->prepare($sqlUser);
     $stmtUser->bind_param("i", $id_user);
@@ -17,7 +17,6 @@ if (isset($_SESSION['id_user'])) {
     $stmtUser->fetch();
     $stmtUser->close();
 }
-// Function to check available tables
 function checkAvailableTable($pax, $conn) {
     $stmt = $conn->prepare("SELECT id_meja FROM meja WHERE slot_kursi >= ? AND jumlah_tersedia > 0 ORDER BY slot_kursi ASC LIMIT 1");
     $stmt->bind_param("i", $pax);
@@ -36,7 +35,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['Continue'])) {
     $qr_code = bin2hex(random_bytes(16));
     $status = 'aktif';
 
-    // Mark any active reservation as inactive
     $stmt = $conn->prepare("UPDATE reservasi SET status = 'inactive' WHERE id_user = ? AND status = 'aktif'");
     $stmt->bind_param("i", $id_user);
     $stmt->execute();
@@ -97,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['Continue'])) {
                         <!-- User image -->
                         <li class="user-header">
                             <img src="https://static-00.iconduck.com/assets.00/profile-major-icon-1024x1024-9rtgyx30.png" class="img-circle profil" alt="User Image">
-                            <p> <?php echo $username ?> </p>
+                            <p> <?php echo $nama ?> </p>
                             <!-- <small>Login terakhir : 2024-12-03 22:34:36</small> -->
                         </li>
                         <!-- Menu Footer-->

@@ -1,35 +1,30 @@
 <?php
-session_start(); // Start session at the beginning
+session_start();
 include 'config.php';
 
-// Ensure reservasi_id is set in session, if not redirect to reservasi.php
 if (!isset($_SESSION['reservasi_id'])) {
     header("Location: reservasi.php?message=Reservation not found.");
     exit();
 }
 
-$reservasi_id = $_SESSION['reservasi_id']; // Get reservation ID from session
+$reservasi_id = $_SESSION['reservasi_id'];
 
-// Fetch menu items from the database
+
 $sql = "SELECT id_menu, nama_menu, deskripsi, harga, foto FROM menu";
 $result = $conn->query($sql);
 
-// Handle POST request to store order details in session and insert into database
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['orderDetails'])) {
-    $orderDetails = json_decode($_POST['orderDetails'], true); // Decode JSON to array
+    $orderDetails = json_decode($_POST['orderDetails'], true); 
 
-    // Begin transaction to insert data into tables
     $conn->begin_transaction();
 
     try {
-        // Step 1: Insert into pesanan_makanan
         $stmtPesanan = $conn->prepare("INSERT INTO pesanan_makanan (id_reservasi) VALUES (?)");
         $stmtPesanan->bind_param("i", $reservasi_id);
         $stmtPesanan->execute();
-        $id_pesanan = $stmtPesanan->insert_id; // Get the generated id_pesanan
+        $id_pesanan = $stmtPesanan->insert_id; 
         $stmtPesanan->close();
 
-        // Step 2: Insert order details into detail_pesanan
         $stmtDetail = $conn->prepare("INSERT INTO detail_pesanan (id_pesanan, id_menu, jumlah, harga) VALUES (?, ?, ?, ?)");
 
         foreach ($orderDetails as $item) {
@@ -43,23 +38,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['orderDetails'])) {
 
         $stmtDetail->close();
 
-        // Commit the transaction
         $conn->commit();
 
-        // Store the order details in session
         $_SESSION['orderDetails'] = $orderDetails;
 
-        // Set session message and redirect to payment page after successful insertion
         $_SESSION['message'] = "Order placed successfully.";
-        header("Location: payment.php");  // This should now work properly
+        header("Location: payment.php");
         exit();
 
     }
     catch (Exception $e) {
-        // Rollback the transaction on error
+
         $conn->rollback();
 
-        // Show an error message
         $_SESSION['message'] = "Error: " . $e->getMessage();
         header("Location: payment.php");
         exit();
@@ -113,7 +104,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['orderDetails'])) {
 <script>
 let cart = [];
 
-// Add event listener to each "add to cart" button
 document.querySelectorAll('.add-to-cart').forEach(button => {
     button.addEventListener('click', () => {
         const item = button.parentElement;
@@ -126,7 +116,6 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
     });
 });
 
-// Add item to cart
 function addToCart(id, name, price) {
     const existingItem = cart.find(item => item.id === id);
     if (existingItem) {
@@ -136,7 +125,6 @@ function addToCart(id, name, price) {
     }
 }
 
-// Update the cart UI and hidden input
 function updateCart() {
     const cartItemsDiv = document.getElementById('cartItems');
     const totalAmountSpan = document.getElementById('totalAmount');
@@ -153,16 +141,14 @@ function updateCart() {
     });
 
     totalAmountSpan.innerText = total.toLocaleString();
-    document.getElementById('orderDetails').value = JSON.stringify(cart); // Save cart data as JSON
+    document.getElementById('orderDetails').value = JSON.stringify(cart);
 }
 
-// Remove item from cart
 function removeFromCart(id) {
     cart = cart.filter(item => item.id !== id);
     updateCart();
 }
 
-// Toggle cart dropdown visibility
 function toggleCartDropdown() {
     document.getElementById('cartDropdown').classList.toggle('show');
 }

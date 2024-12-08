@@ -56,28 +56,22 @@
 </html>
 
 <?php
-// Include the database configuration
 include('config.php');
 
-// Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['Send'])) {
-    // Capture form data
     $name = $_POST['name'];
     $email = $_POST['email'];
     $phone_number = $_POST['phone_number'];
     $message = $_POST['message'];
 
-    // Basic validation (you can add more detailed validation as needed)
     if (empty($name) || empty($email) || empty($phone_number) || empty($message)) {
         echo "<script>alert('Please fill in all fields.');</script>";
     } else {
-        // Sanitize the inputs
         $name = $conn->real_escape_string($name);
         $email = $conn->real_escape_string($email);
         $phone_number = $conn->real_escape_string($phone_number);
         $message = $conn->real_escape_string($message);
 
-        // Insert data into the database
         $sql = "INSERT INTO contacts_input (name, email, phone_number, message)
                 VALUES ('$name', '$email', '$phone_number', '$message')";
 

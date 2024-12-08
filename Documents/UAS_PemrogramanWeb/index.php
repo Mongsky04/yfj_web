@@ -1,7 +1,7 @@
 <?php
-session_start(); // Start session to fetch the stored data
+session_start(); 
 include('config.php');
-// Check if the user is logged in
+
 if (isset($_SESSION['id_user'])) {
     header("Location: my-reservasi.php?");
     exit();

@@ -1,31 +1,26 @@
 <?php
 session_start();
-include('config.php'); // Include your database connection
+include('config.php');
 
-// Check if the user is logged in and a reservation ID is set
 if (!isset($_SESSION['id_user']) || !isset($_SESSION['reservasi_id'])) {
     header("Location: index.php?message=Please log in to update a reservation.");
     exit();
 }
 
-$id_user = $_SESSION['id_user']; // Get the logged-in user's ID
-$reservasi_id = $_SESSION['reservasi_id']; // Get the current reservation ID
+$id_user = $_SESSION['id_user'];
+$reservasi_id = $_SESSION['reservasi_id'];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['Update'])) {
-    // Retrieve the submitted date and time
     $date = $conn->real_escape_string($_POST['date']);
     $time = $conn->real_escape_string($_POST['time']);
 
-    // Update the reservation in the database
     $stmt = $conn->prepare("UPDATE reservasi SET tanggal_reservasi = ?, waktu_reservasi = ? WHERE id_reservasi = ? AND id_user = ?");
     $stmt->bind_param("ssii", $date, $time, $reservasi_id, $id_user);
 
     if ($stmt->execute()) {
-        // Redirect to the 'my-reservasi.php' page with a success message
         header("Location: my-reservasi.php?message=Reservation updated successfully.");
         exit();
     } else {
-        // Display an error message on failure
         echo "<script>alert('Failed to update reservation. Please try again.');</script>";
     }
     $stmt->close();

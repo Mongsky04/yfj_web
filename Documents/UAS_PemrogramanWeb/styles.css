@@ -25,6 +25,12 @@ header {
     background-color: white;
 }
 
+.profilmenu {
+    display: flex;
+    left: 650px;
+    bottom: 10px;
+}
+
 .brand {
     font-size: 1.5em;
     font-weight: 700;
@@ -867,11 +873,6 @@ fieldset {
     display: none;
 }
 
-.profilmenu {
-    position: relative;
-    left: 1200px;
-    list-style: none;
-}
 
 .user-header {
     height: 125px;
