@@ -201,7 +201,7 @@ if (isset($_SESSION['orderDetails']) && !empty($_SESSION['orderDetails'])) {
         </div>
         <div class="deleteupdatebutton">
             <button id="update" class="buttonmyres">Update</button>
-            <a href="delete_order.php"><button id="delete" class="buttonmyres">Delete</button></a>
+            <button id="delete" class="buttonmyres">Delete</button></a>
         </div>
 
         
@@ -214,5 +214,26 @@ if (isset($_SESSION['orderDetails']) && !empty($_SESSION['orderDetails'])) {
         window.location.href = "update.php";
     });
 </script>
+
+<script>
+    document.getElementById("delete").addEventListener("click", function() {
+        fetch('delete_order.php', {
+            method: 'GET',
+        })
+        .then(response => {
+            if (response.ok) {
+                window.location.href = "index.php";
+            } else {
+                alert("Failed to delete the reservation.");
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("An error occurred while deleting the reservation.");
+        });
+    });
+</script>
+
+
 </body>
 </html>

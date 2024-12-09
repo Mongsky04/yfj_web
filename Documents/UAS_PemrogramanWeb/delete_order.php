@@ -2,9 +2,10 @@
 session_start();
 include('config.php');
 
+
 if (isset($_SESSION['id_user'])) {
     $id_user = $_SESSION['id_user'];
-
+    $reservasi_id = $_SESSION['reservasi_id'];
 
     $stmt = $conn->prepare("SELECT id_reservasi FROM reservasi WHERE id_user = ? AND status = 'aktif'");
     $stmt->bind_param("i", $id_user);
@@ -13,11 +14,16 @@ if (isset($_SESSION['id_user'])) {
     
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        $reservasi_id = $row['id_reservasi'];
+       
 
         $conn->begin_transaction();
 
         try {
+            $stmtTransaksi = $conn->prepare("DELETE FROM transaksi WHERE id_reservasi = ?");
+            $stmtTransaksi->bind_param("i", $reservasi_id);
+            $stmtTransaksi->execute();
+            $stmtTransaksi->close();
+
             $stmtDetail = $conn->prepare("DELETE FROM detail_pesanan WHERE id_pesanan IN (SELECT id_pesanan FROM pesanan_makanan WHERE id_reservasi = ?)");
             $stmtDetail->bind_param("i", $reservasi_id);
             $stmtDetail->execute();
