@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Support Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>IT Support Dashboard</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Device Name</th>
+                    <th>Status</th>
+                    <th>Remote</th>
+                    <th>SSH</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for device in devices %}
+                <tr>
+                    <td>{{ device.name }}</td>
+                    <td class="{{ device.status|lower }}">{{ device.status }}</td>
+                    <td>
+                        <a href="http://{{ device.tailscale_ip }}:8080/guacamole" target="_blank">
+                            <button>Remote</button>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ url_for('connect', ip=device.tailscale_ip) }}">
+                            <button>SSH</button>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
