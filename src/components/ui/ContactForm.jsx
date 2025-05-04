@@ -7,7 +7,7 @@ import { useState } from 'react'
  
    return (
      <>
-     <div className='flex items-center h-[70px] text-[28px] font-bold m-5 mb-0'>
+     <div className='flex items-center h-[70px] text-[28px] font-bold m-5 mb-0 font-montserrat'>
        <p>Contact Us!</p>
      </div>
  
@@ -57,6 +57,26 @@ import { useState } from 'react'
          />
        </div>
      </div>
+
+
+     <div className="m-10 flex justify-center">
+          <button
+            type="submit"
+            className="
+              px-6 py-3 
+              bg-green-500
+              text-white 
+              rounded-lg 
+              text-sm 
+              font-inter 
+              hover:bg-green-400
+              transition
+              active:bg-green-200
+            "
+          >
+            Send Message!
+          </button>
+        </div>
      </>
    )
  }
