@@ -53,7 +53,7 @@ function About() {
       <div className='flex'>
         <div className='flex flex-col justify-center items-center flex-1 m-4'>
           <div className='w-full max-w-3xl'>
-            <p className='font-montserrat text-[36px] font-bold text-right'>Fruit Quality</p>
+            <p className='font-montserrat text-[36px] font-bold text-left'>Fruit Quality</p>
             <br />
             <p className='font-inter text-[20px] text-justify'>
             We are annually processes up to 100.000 kgs of premium tropical and imported fruit for key domestic markets.
@@ -85,7 +85,7 @@ Yuliana Fresh Fruit Juice brand is committed to innovation, new technology and i
       <div className='flex'>
         <div className='flex flex-col justify-center items-center flex-1 m-4'>
           <div className='w-full max-w-3xl'>
-            <p className='font-montserrat text-[36px] font-bold text-right'>Our Juice</p>
+            <p className='font-montserrat text-[36px] font-bold text-left'>Our Juice</p>
             <br />
             <p className='font-inter text-[20px] text-justify'>
             When it comes to juice, the quality and freshness of the ingredients and method of extraction are integral in creating the best possible product. What has always been a driving force and distinguishing factor at Juice Shop is only offering raw and living, organic juices. We have adhered to these foundational standards since our humble beginnings when we were juicing for each other in our family kitchen. We are still committed to serving the freshest and purest juice to amplify the incredible health potential that exist in the plants we use.
