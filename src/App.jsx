@@ -6,6 +6,7 @@ import ContactForm from './components/ui/ContactForm'
 import OSMMap from './components/ui/map'
 import 'leaflet/dist/leaflet.css'
 import Location from './pages/locationpage'
+import About from './pages/about'
 
 function App() {
   const [mapCenter] = useState({
@@ -16,8 +17,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <FormSwitcher />
-      <Location />
+      <About />
     </>
   )
 }
