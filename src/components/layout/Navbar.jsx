@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import YFJLOGO from "../../assets/images/YFJRE.jpg";
+import LOGO from "../../assets/images/YFJ.png";
 
 // Dropdown items for "Product"
 const productItems = [
@@ -79,7 +79,7 @@ function Navbar() {
       <div className=" mx-auto px-6 py-4 grid grid-cols-3 items-center">
         {/* Logo on the left */}
         <div>
-          <img src={YFJLOGO} alt="YFJ Logo" className=" h-20" />
+          <img src={LOGO} alt="YFJ Logo" className=" h-20" />
         </div>
 
         {/* Centered navigation */}
