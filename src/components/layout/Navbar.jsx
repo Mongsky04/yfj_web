@@ -6,9 +6,9 @@ import LOGO from "../../assets/images/YFJ.png";
 const productItems = [
   { label: "All Products", to: "/product/all" },
   { label: "Juices", to: "/product/juices" },
-  { label: "Puree", to: "/product/cleanses" },
-  { label: "Frozen IQF", to: "/product/elixirs" },
-  { label: "Imported Fruits", to: "/product/nut-milks-smoothies" },
+  { label: "Puree", to: "/product/puree" },
+  { label: "Frozen IQF", to: "/product/frozen-iqf" },
+  { label: "Imported Fruits", to: "/product/imported-fruits" },
 ];
 
 // Main navigation config

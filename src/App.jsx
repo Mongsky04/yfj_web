@@ -1,8 +1,8 @@
-// src/App.jsx
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
+import AllProducts from "./pages/AllProducts";
 
 export default function App() {
   return (
@@ -10,7 +10,9 @@ export default function App() {
       <Navbar />
 
       <main className="flex-grow">
-        <Routes>{/* tambah Route lain */}</Routes>
+        <Routes>
+          <Route path="/product/all" element={<AllProducts />} />
+        </Routes>
       </main>
 
       <Footer />
