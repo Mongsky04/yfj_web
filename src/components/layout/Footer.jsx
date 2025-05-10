@@ -29,7 +29,7 @@ const Footer = () => (
   <footer className="bg-[#f8f8f6] text-gray-500 px-6 md:px-20 py-10">
     <div className="flex flex-col lg:flex-row justify-between items-start space-y-10 lg:space-y-0">
       {/* Logo */}
-      <div className="flex-shrink-0 pr-40">
+      <div className="flex-shrink-0 pr-40 cursor-pointer">
         <img src={Logo} alt="Yuliana Juice" className="w-32 object-contain" />
       </div>
 
@@ -44,7 +44,7 @@ const Footer = () => (
     <hr className="border-gray-300 my-8" />
 
     <div className="text-xs text-gray-500 text-center font-semibold">
-      © {new Date().getFullYear()} YFJ. All Rights Reserved.
+      © {new Date().getFullYear()} YFJ - Fresh Juice by Yuliana. All Rights Reserved.
     </div>
   </footer>
 );
