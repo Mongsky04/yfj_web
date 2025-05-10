@@ -6,11 +6,9 @@ import LOGO from "../../assets/images/YFJ.png";
 const productItems = [
   { label: "All Products", to: "/product/all" },
   { label: "Juices", to: "/product/juices" },
-  { label: "Cleanses", to: "/product/cleanses" },
-  { label: "Elixirs", to: "/product/elixirs" },
-  { label: "Nut Milks & Smoothies", to: "/product/nut-milks-smoothies" },
-  { label: "Packages", to: "/product/packages" },
-  { label: "Gift Cards", to: "/product/gift-cards" },
+  { label: "Puree", to: "/product/cleanses" },
+  { label: "Frozen IQF", to: "/product/elixirs" },
+  { label: "Imported Fruits", to: "/product/nut-milks-smoothies" },
 ];
 
 // Main navigation config
@@ -79,7 +77,7 @@ function Navbar() {
       <div className=" mx-auto px-6 py-4 grid grid-cols-3 items-center">
         {/* Logo on the left */}
         <div>
-          <img src={LOGO} alt="YFJ Logo" className=" h-20" />
+          <img src={LOGO} alt="YFJ Logo" className=" h-20 cursor-pointer" />
         </div>
 
         {/* Centered navigation */}

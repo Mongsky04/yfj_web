@@ -3,31 +3,18 @@ import Logo from "../../assets/images/YFJ.png";
 
 const navColumns = [
   {
-    items: [
-      "OUR STORY",
-      "OUR JUICE",
-      "SUSTAINABILITY",
-      "VISIT",
-      "STORE LOCATOR",
-    ],
+    items: ["OUR STORY", "OUR JUICE", "LOCATION"],
   },
   {
-    items: ["FAQS", "EVENTS & CATERING", "WHOLESALE", "CAREERS", "CONTACT US"],
+    items: ["FAQS", "WHOLESALE", "CONTACT US"],
   },
   {
-    items: [
-      "FACEBOOK",
-      "INSTAGRAM",
-      "TERMS OF SERVICE",
-      "PRIVACY POLICY",
-      "REFUND POLICY",
-      "ACCESSIBILITY STATEMENT",
-    ],
+    items: ["FACEBOOK", "INSTAGRAM", "TERMS OF SERVICE", "PRIVACY POLICY"],
   },
 ];
 
 const NavColumn = ({ items }) => (
-  <ul className="space-y-3 text-sm font-semibold">
+  <ul className="space-y-3 text-lg font-bold text-gray-500">
     {items.map((link) => (
       <li key={link}>
         <a href="#" className="hover:underline">
@@ -39,46 +26,25 @@ const NavColumn = ({ items }) => (
 );
 
 const Footer = () => (
-  <footer className="bg-gray-100 text-gray-700 px-6 md:px-12 py-4">
-    <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start space-y-8 lg:space-y-0">
-      {/* Logo & Navigation */}
-      <div className="flex-1 flex flex-col lg:flex-row">
-        <img
-          src={Logo}
-          alt="YFJ – Fresh Juice by Yuliana"
-          className="w-32 mb-6 lg:mb-0 lg:mr-12 object-contain"
-        />
-        <nav className="flex space-x-12">
-          {navColumns.map((col, idx) => (
-            <NavColumn key={idx} items={col.items} />
-          ))}
-        </nav>
+  <footer className="bg-[#f8f8f6] text-gray-500 px-6 md:px-20 py-10">
+    <div className="flex flex-col lg:flex-row justify-between items-start space-y-10 lg:space-y-0">
+      {/* Logo */}
+      <div className="flex-shrink-0 pr-40">
+        <img src={Logo} alt="Yuliana Juice" className="w-32 object-contain" />
       </div>
 
-      {/* Newsletter signup */}
-      <div className="w-full lg:w-auto">
-        <p className="mb-3 font-semibold">Sign up to get the latest info:</p>
-        <form className="flex">
-          <input
-            type="email"
-            placeholder="Email*"
-            className="flex-1 px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none"
-          />
-          <button
-            type="submit"
-            className="px-6 py-2 bg-black text-white uppercase rounded-r-md font-semibold"
-          >
-            Sign Up
-          </button>
-        </form>
+      {/* Navigation Columns */}
+      <div className="flex flex-wrap gap-40 flex-1 justify-start">
+        {navColumns.map((col, idx) => (
+          <NavColumn key={idx} items={col.items} />
+        ))}
       </div>
     </div>
 
-    <hr className="border-gray-300 my-5" />
+    <hr className="border-gray-300 my-8" />
 
-    {/* Bottom Copyright & Logo */}
-    <div className="flex flex-col md:flex-row md:justify-center md:items-center text-xs text-gray-600">
-      <div>© {new Date().getFullYear()} YFJ. All Rights Reserved.</div>
+    <div className="text-xs text-gray-500 text-center font-semibold">
+      © {new Date().getFullYear()} YFJ. All Rights Reserved.
     </div>
   </footer>
 );
