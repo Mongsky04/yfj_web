@@ -1,13 +1,19 @@
-import React, { useState } from "react";
+// src/App.jsx
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
-import About from "./pages/about";
+import Footer from "./components/layout/Footer";
 
-function App() {
+export default function App() {
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Navbar />
-    </>
+
+      <main className="flex-grow">
+        <Routes>{/* tambah Route lain */}</Routes>
+      </main>
+
+      <Footer />
+    </div>
   );
 }
-
-export default App;
