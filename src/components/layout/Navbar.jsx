@@ -61,7 +61,9 @@ const ProductDropdown = ({ items }) => {
           {items.map((item, idx) => (
             <li key={idx} className=" px-0 py-0">
               <LinkItem to={item.to} onClick={() => setOpen(false)}>
-                <span className=" block px-4 py-3 text-sm font-semibold">{item.label}</span>
+                <span className=" block px-4 py-3 text-sm font-semibold">
+                  {item.label}
+                </span>
               </LinkItem>
             </li>
           ))}
