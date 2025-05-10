@@ -1,18 +1,18 @@
-import { useState } from 'react'
-import TextInput from './input'
+import { useState } from "react";
+import TextInput from "./input";
 
 export default function ContactForm() {
   const handleSubmit = (e) => {
-    e.preventDefault()
-    const form = e.target
-    const contact   = form.contact.value
-    const email     = form.email.value
-    const business  = form.business.value
-    const phone     = form.number.value
-    const message   = form.description.value
+    e.preventDefault();
+    const form = e.target;
+    const contact = form.contact.value;
+    const email = form.email.value;
+    const business = form.business.value;
+    const phone = form.number.value;
+    const message = form.description.value;
 
-    const to      = 'sales@yulianajuice.com'
-    const subject = `New Message from ${contact}`
+    const to = "sales@yulianajuice.com";
+    const subject = `New Message from ${contact}`;
     const body = [
       `Contact Name: ${contact}`,
       `Email:        ${email}`,
@@ -20,16 +20,16 @@ export default function ContactForm() {
       `Phone:        ${phone}`,
       ``,
       `Message:`,
-      `${message}`
-    ].join('\n')
+      `${message}`,
+    ].join("\n");
 
     const mailtoLink =
       `mailto:${to}` +
       `?subject=${encodeURIComponent(subject)}` +
-      `&body=${encodeURIComponent(body)}`
+      `&body=${encodeURIComponent(body)}`;
 
-    window.location.href = mailtoLink
-  }
+    window.location.href = mailtoLink;
+  };
 
   return (
     <>
@@ -57,7 +57,7 @@ export default function ContactForm() {
               helperText="Your email will not be shared."
             />
           </div>
-          
+
           <div className="flex-1 flex flex-col space-y-10">
             <TextInput
               id="business"
@@ -110,5 +110,5 @@ export default function ContactForm() {
         </div>
       </form>
     </>
-  )
+  );
 }

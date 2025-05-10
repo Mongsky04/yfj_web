@@ -1,15 +1,14 @@
+import React from "react";
 
-import React from 'react';
- 
 const TextInput = ({
   id,
   label = "Label",
-  type = "text",           
+  type = "text",
   placeholder = "",
-  as = "input",      
+  as = "input",
   rows = 3,
   helperText = "",
-  options = [],           
+  options = [],
   className = "",
   ...rest
 }) => (
@@ -18,7 +17,7 @@ const TextInput = ({
       {label}
     </label>
 
-    {as === 'textarea' ? (
+    {as === "textarea" ? (
       <textarea
         id={id}
         rows={rows}
@@ -30,7 +29,7 @@ const TextInput = ({
         "
         {...rest}
       />
-    ) : as === 'select' ? (
+    ) : as === "select" ? (
       <select
         id={id}
         className="
@@ -41,9 +40,9 @@ const TextInput = ({
         {...rest}
       >
         <option value="" disabled>
-          {placeholder || '— Select —'}
+          {placeholder || "— Select —"}
         </option>
-        {options.map(opt => (
+        {options.map((opt) => (
           <option key={opt.value} value={opt.value}>
             {opt.label}
           </option>
@@ -64,9 +63,7 @@ const TextInput = ({
     )}
 
     {helperText && (
-      <p className="mt-1 text-xs text-gray-500 font-montserrat">
-        {helperText}
-      </p>
+      <p className="mt-1 text-xs text-gray-500 font-montserrat">{helperText}</p>
     )}
   </div>
 );
