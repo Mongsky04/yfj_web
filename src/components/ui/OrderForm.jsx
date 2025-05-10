@@ -1,22 +1,22 @@
-import { useState } from 'react'
-import TextInput from './input'
+import { useState } from "react";
+import TextInput from "./input";
 
 export default function OrderForm() {
   const handleSubmit = (e) => {
-    e.preventDefault()
-    const form = e.target
-    const contact      = form.contact.value
-    const email        = form.email.value
-    const location     = form.location.value
-    const date         = form.date.value
-    const business     = form.business.value
-    const phone        = form.number.value
-    const guestCount   = form.guestCount.value
-    const serviceType  = form.serviceType.value
-    const description  = form.description.value
+    e.preventDefault();
+    const form = e.target;
+    const contact = form.contact.value;
+    const email = form.email.value;
+    const location = form.location.value;
+    const date = form.date.value;
+    const business = form.business.value;
+    const phone = form.number.value;
+    const guestCount = form.guestCount.value;
+    const serviceType = form.serviceType.value;
+    const description = form.description.value;
 
-    const to      = 'Sales@yulianajuice.com'
-    const subject = `New Juice Order from ${contact}`
+    const to = "Sales@yulianajuice.com";
+    const subject = `New Juice Order from ${contact}`;
     const body = [
       `Contact Name: ${contact}`,
       `Email:        ${email}`,
@@ -28,16 +28,16 @@ export default function OrderForm() {
       `Service:      ${serviceType}`,
       ``,
       `Details:`,
-      `${description}`
-    ].join('\n')
+      `${description}`,
+    ].join("\n");
 
     const mailtoLink =
       `mailto:${to}` +
       `?subject=${encodeURIComponent(subject)}` +
-      `&body=${encodeURIComponent(body)}`
+      `&body=${encodeURIComponent(body)}`;
 
-    window.location.href = mailtoLink
-  }
+    window.location.href = mailtoLink;
+  };
 
   return (
     <>
@@ -113,11 +113,11 @@ export default function OrderForm() {
               as="select"
               placeholder="Choose a service"
               options={[
-                { value: 'event',     label: 'Event' },
-                { value: 'wholesale', label: 'Wholesale' },
-                { value: 'custom',    label: 'Custom Order and Branding' },
-                { value: 'b2b',       label: 'B2B' },
-                { value: 'other',     label: 'Other' },
+                { value: "event", label: "Event" },
+                { value: "wholesale", label: "Wholesale" },
+                { value: "custom", label: "Custom Order and Branding" },
+                { value: "b2b", label: "B2B" },
+                { value: "other", label: "Other" },
               ]}
             />
           </div>
@@ -157,5 +157,5 @@ export default function OrderForm() {
         </div>
       </form>
     </>
-  )
+  );
 }
