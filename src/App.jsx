@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import AllProducts from "./pages/AllProducts";
+import Home from "./pages/Home"
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
 
       <main className="flex-grow">
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/product/all" element={<AllProducts />} />
         </Routes>
       </main>

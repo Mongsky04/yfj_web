@@ -75,7 +75,7 @@ const ProductDropdown = ({ items }) => {
 
 function Navbar() {
   return (
-    <nav className=" bg-white shadow">
+    <nav className=" bg-white shadow sticky top-0 z-50">
       <div className=" mx-auto px-6 py-4 grid grid-cols-3 items-center">
         {/* Logo on the left */}
         <div>
