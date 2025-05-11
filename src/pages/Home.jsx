@@ -5,11 +5,11 @@ const Home = () => {
   return (
     <>
 
-    <Navbar />
+
       {/* Hero section */}
       <section className="relative w-full h-screen overflow-hidden">
         <img
-          src="/van.png"
+          src="/van.jpg"
           alt="Yuliana Fresh Juice Van"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -36,10 +36,10 @@ const Home = () => {
 
       <section className="w-full bg-white py-16 px-6 flex flex-col items-center text-center mb-70">
           {/* Heading */}
-          <h2 className="text-4xl md:text-5xl font-extrabold font-futura text-[#2D2D2D]">
+          <h2 className="text-4xl md:text-5xl text-[#1F2937] font-moul te font-bold">
             What's new?
           </h2>
-          <p className="-mt-2 text-lg md:text-xl font-[Inter] text-gray-600">
+          <p className="-mt-2 text-lg md:text-xl font-[Inter] text-[#1F2937] text-bold ">
             Try out our best seller products
           </p>
 
@@ -52,8 +52,8 @@ const Home = () => {
                 alt="Juices"
                 className="w-full h-auto rounded-md shadow"
               />
-              <h3 className="mt-4 text-xl font-extrabold  text-[#2D2D2D]">Juices</h3>
-              <p className="-mt-1 text-lg  text-gray-600 font-[Inter]">
+              <h3 className="mt-4 text-xl font-extrabold  text-[#1F2937] font-moul">Juices</h3>
+              <p className="-mt-1 text-lg  text-[#1F2937] font-[Inter]">
                 Try out our finest juice!
               </p>
             </div>
@@ -65,8 +65,8 @@ const Home = () => {
                 alt="Other Fruits Products"
                 className="w-full h-auto rounded-md shadow"
               />
-              <h3 className="mt-4 text-xl font-extrabold text-[#2D2D2D]">Other Fruits Products</h3>
-              <p className="-mt-1 text-lg text-gray-600 font-[Inter]">
+              <h3 className="mt-4 text-xl font-extrabold  text-[#1F2937] font-moul">Other Fruits Products</h3>
+              <p className="-mt-1 text-lg text-[#1F2937] font-[Inter]">
                 We don't only serve juices
               </p>
             </div>
@@ -89,9 +89,9 @@ const Home = () => {
               <img
                 src={item.src}
                 alt={item.label}
-                className="w-60 h-auto pointer-events-none"
+                className="w-80 h-auto pointer-events-none"
               />
-              <p className="mt-2 text-base md:text-lg font-semibold font-[Inter] text-[#2D2D2D]">
+              <p className="mt-2 text-base text-[24px] font-semibold font-[Inter] text-[#2D2D2D]">
                 {item.label}
               </p>
             </div>
@@ -120,14 +120,25 @@ const Home = () => {
               <img
                 src={item.src}
                 alt={item.label}
-                className="w-60 h-auto pointer-events-none"
+                className="w-80 h-auto pointer-events-none"
               />
-              <p className="mt-2 text-base md:text-lg font-semibold font-[Inter] text-[#2D2D2D]">
+              <p className="mt-2 text-base text-[24px] font-semibold font-[Inter] text-[#2D2D2D]">
                 {item.label}
               </p>
             </div>
           ))}
         </div>
+      </section>
+
+      <section className="w-full bg-black">
+        <video
+          src="/jusbagus.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-auto object-cover"
+        />
       </section>
 
     </>
