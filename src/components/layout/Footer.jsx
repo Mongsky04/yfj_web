@@ -1,5 +1,6 @@
 import React from "react";
 import Logo from "../../assets/images/YFJ.png";
+import { Link } from "react-router-dom";
 
 const navColumns = [
   {
@@ -30,7 +31,13 @@ const Footer = () => (
     <div className=" flex flex-col lg:flex-row justify-between items-start space-y-10 lg:space-y-0">
       {/* Logo */}
       <div className=" flex-shrink-0 pr-40 cursor-pointer">
-        <img src={Logo} alt="Yuliana Juice" className=" w-32 object-contain" />
+        <Link to={"/"}>
+          <img
+            src={Logo}
+            alt="Yuliana Juice"
+            className=" w-32 object-contain"
+          />
+        </Link>
       </div>
 
       {/* Navigation Columns */}
