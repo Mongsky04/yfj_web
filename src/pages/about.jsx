@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import 'leaflet/dist/leaflet.css'
+import Navbar from '../components/layout/Navbar'
 
 function About() {
   return (
     <>
       <div>
-        <img src='/pict.jpg' className='mb-15'></img>
+        <img src='/banner.png' className='mb-15'></img>
       </div>
       <div className='flex'>
         <div className='flex-1'>
