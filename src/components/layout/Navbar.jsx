@@ -1,22 +1,23 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import LOGO from "../../assets/images/YFJ.png";
 
 // Dropdown items for "Product"
 const productItems = [
   { label: "All Products", to: "/product/all" },
   { label: "Juices", to: "/product/juices" },
-  { label: "Puree", to: "/product/puree" },
-  { label: "Frozen IQF", to: "/product/frozen-iqf" },
+  { label: "Purees", to: "/product/purees" },
+  { label: "Concentrates", to: "/product/concentrates" },
   { label: "Imported Fruits", to: "/product/imported-fruits" },
+  { label: "Frozen IQF", to: "/product/frozen-iqf" },
 ];
 
 // Main navigation config
 const navConfig = [
-  { label: "Home", to: "/" },
+  { label: "HOME", to: "/" },
   { label: "Product", dropdown: productItems },
-  { label: "About", to: "/about" },
-  { label: "Contact", to: "/contact" },
+  { label: "ABOUT", to: "/about" },
+  { label: "CONTACT", to: "/contact" },
 ];
 
 // Simple NavLink wrapper with active styling
@@ -28,7 +29,7 @@ const LinkItem = ({ to, children, onClick }) => (
     className={({ isActive }) =>
       ` font-bold ${
         isActive ? " text-[#FFB22C]" : " text-gray-500"
-      }  hover:text-[#FFB22C] uppercase`
+      }  hover:text-[#FFB22C]`
     }
   >
     {children}
@@ -79,7 +80,9 @@ function Navbar() {
       <div className=" mx-auto px-6 py-4 grid grid-cols-3 items-center">
         {/* Logo on the left */}
         <div>
-          <img src={LOGO} alt="YFJ Logo" className=" h-20 cursor-pointer" />
+          <Link to={"/"}>
+            <img src={LOGO} alt="YFJ Logo" className=" h-20 cursor-pointer" />
+          </Link>
         </div>
 
         {/* Centered navigation */}
