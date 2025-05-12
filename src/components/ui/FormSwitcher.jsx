@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import ContactForm from "./ContactForm";
 import OrderForm from "./OrderForm";
+import Navbar from "../layout/Navbar";
 
 const FormSwitcher = () => {
   const [showOrder, setShowOrder] = useState(false);
 
   return (
+
     <div className="relative h-screen bg-gray-50 m-10">
       <div className="absolute top-4 right-4 flex items-center space-x-2">
         <span

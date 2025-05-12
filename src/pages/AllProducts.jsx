@@ -85,139 +85,80 @@ const concentrate = [
 
 // Page header component
 const PageHeader = ({ title, subtitle }) => (
-  <header className=" text-center mb-16">
-    <h1 className=" text-3xl font-bold">{title}</h1>
-    <p className=" mt-2 text-gray-600">{subtitle}</p>
+  <header className="text-center mb-16">
+    <h1 className="text-3xl font-bold">{title}</h1>
+    <p className="mt-2 text-gray-600">{subtitle}</p>
   </header>
 );
 
-// Section wrapper with a title and divider
+// Section wrapper
 const Section = ({ title, children }) => (
   <section>
-    <div className=" flex items-center justify-center mb-4">
-      <h2 className=" text-2xl font-bold uppercase cursor-pointer inline-block hover:text-yellow-500">
-        {title}
-      </h2>
+    <div className="flex items-center justify-center mb-4">
+      <h2 className="text-2xl font-bold uppercase hover:text-yellow-500 cursor-pointer">{title}</h2>
     </div>
-    <hr className=" border-t border-gray-500 mb-8" />
+    <hr className="border-t border-gray-500 mb-8" />
     {children}
   </section>
 );
 
-// Individual product card
-const ProductCard = ({ name, src, onSale, size }) => (
-  <div className=" relative group">
-    {onSale && (
-      <span className=" absolute top-2 left-2 bg-yellow-400 text-white text-xs font-semibold px-2 py-1 rounded">
-        Sale
-      </span>
-    )}
-    <div className=" overflow-hidden rounded-lg shadow-lg group-hover:shadow-xl transition-shadow">
-      <img
-        src={src}
-        alt={name}
-        className=" w-full h-auto object-contain group-hover:scale-105 transition-transform cursor-pointer"
-      />
+// Product Card with dynamic link
+const ProductCard = ({ id, name, src, onSale, type }) => (
+  <Link to={`/product/${type}/${id}`} className="block">
+    <div className="relative group">
+      {onSale && (
+        <span className="absolute top-2 left-2 bg-yellow-400 text-white text-xs font-semibold px-2 py-1 rounded">
+          Sale
+        </span>
+      )}
+      <div className="overflow-hidden rounded-lg shadow-lg group-hover:shadow-xl transition-shadow">
+        <img
+          src={src}
+          alt={name}
+          className="w-full h-auto object-contain group-hover:scale-105 transition-transform"
+        />
+      </div>
+      <p className="mt-4 text-center font-bold text-gray-500 uppercase group-hover:text-yellow-500">
+        {name}
+      </p>
     </div>
-    <p className=" mt-4 text-center font-bold text-gray-500 uppercase cursor-pointer hover:text-yellow-500">
-      {name}
-    </p>
-  </div>
+  </Link>
 );
 
-// Main AllProducts page
+// Main Page
 export default function AllProducts() {
   return (
-    <main className=" max-w-7xl mx-auto px-6 py-12 space-y-16">
-      <PageHeader
-        title="ALL PRODUCTS"
-        subtitle="All products are categorized into sections."
-      />
+    <main className="max-w-7xl mx-auto px-6 py-12 space-y-16">
+      <PageHeader title="ALL PRODUCTS" subtitle="All products are categorized into sections." />
 
-      <Section
-        title={
-          <Link
-            to="/product/juices"
-            className=" text-2xl font-bold uppercase hover:text-yellow-500"
-          >
-            Juices – 1 Litre
-          </Link>
-        }
-      >
-        <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <Section title="Juices – 1 Litre">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {juice1.map((product) => (
-            <ProductCard
-              key={product.id}
-              name={product.name}
-              src={product.src}
-              onSale={product.onSale}
-            />
+            <ProductCard key={product.id} {...product} type="juice1" />
           ))}
         </div>
       </Section>
 
-      <Section
-        title={
-          <Link
-            to="/product/juices"
-            className=" text-2xl font-bold uppercase hover:text-yellow-500"
-          >
-            Juices – 5 Litre
-          </Link>
-        }
-      >
-        <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <Section title="Juices – 5 Litre">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {juice5.map((product) => (
-            <ProductCard
-              key={product.id}
-              name={product.name}
-              src={product.src}
-              onSale={product.onSale}
-            />
+            <ProductCard key={product.id} {...product} type="juice5" />
           ))}
         </div>
       </Section>
 
-      <Section
-        title={
-          <Link
-            to="/product/purees"
-            className=" text-2xl font-bold uppercase hover:text-yellow-500"
-          >
-            Purees
-          </Link>
-        }
-      >
-        <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <Section title="Purees">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {puree.map((product) => (
-            <ProductCard
-              key={product.id}
-              name={product.name}
-              src={product.src}
-              onSale={product.onSale}
-            />
+            <ProductCard key={product.id} {...product} type="puree" />
           ))}
         </div>
       </Section>
 
-      <Section
-        title={
-          <Link
-            to="/product/concentrates"
-            className=" text-2xl font-bold uppercase hover:text-yellow-500"
-          >
-            Concentrates
-          </Link>
-        }
-      >
-        <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <Section title="Concentrates">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {concentrate.map((product) => (
-            <ProductCard
-              key={product.id}
-              name={product.name}
-              src={product.src}
-              onSale={product.onSale}
-            />
+            <ProductCard key={product.id} {...product} type="concentrate" />
           ))}
         </div>
       </Section>

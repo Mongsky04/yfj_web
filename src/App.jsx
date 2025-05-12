@@ -4,6 +4,12 @@ import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import AllProducts from "./pages/AllProducts";
 import Home from "./pages/Home";
+import Contact from "./pages/contact";
+import About from "./pages/about";
+import Juices from "./pages/juices";
+import Puree from "./pages/puree";
+import Concentrate from "./pages/concentrate";
+import ProductDetail from "./pages/ProductDetail";
 
 export default function App() {
   return (
@@ -14,6 +20,12 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/product/all" element={<AllProducts />} />
+          <Route path="/product/juices" element={<Juices />} />
+          <Route path="/product/purees" element={<Puree />} />
+          <Route path="/product/concentrates" element={<Concentrate />} />
+          <Route path="/product/:type/:id" element={<ProductDetail />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </main>
 

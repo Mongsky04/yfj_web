@@ -6,7 +6,7 @@ function About() {
   return (
     <>
       <div>
-        <img src='/banner.png' className='mb-15'></img>
+        <img src='/banner.jpg' className='mb-15 w-full h-auto'></img>
       </div>
       <div className='flex'>
         <div className='flex-1'>

@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import OSMMap from '../components/ui/map'
-import 'leaflet/dist/leaflet.css'
+import React, { useState } from 'react';
+import OSMMap from './map'
+import 'leaflet/dist/leaflet.css';
 
 function Location() {
   const [mapCenter] = useState({
