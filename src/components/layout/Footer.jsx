@@ -10,7 +10,7 @@ const navColumns = [
     items: ["FAQS", "WHOLESALE", "CONTACT US"],
   },
   {
-    items: ["FACEBOOK", "INSTAGRAM", "TERMS OF SERVICE", "PRIVACY POLICY"],
+    items: ["TERMS OF SERVICE", "PRIVACY POLICY"],
   },
 ];
 
