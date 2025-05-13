@@ -10,6 +10,8 @@ import Juices from "./pages/juices";
 import Puree from "./pages/puree";
 import Concentrate from "./pages/concentrate";
 import ProductDetail from "./pages/ProductDetail";
+import ImportedFruits from "./pages/importedFruits";
+import FrozenIQF from "./pages/frozenIQF";
 
 export default function App() {
   return (
@@ -23,6 +25,8 @@ export default function App() {
           <Route path="/product/juices" element={<Juices />} />
           <Route path="/product/purees" element={<Puree />} />
           <Route path="/product/concentrates" element={<Concentrate />} />
+          <Route path="/product/imported-fruits" element={<ImportedFruits />} />
+          <Route path="/product/frozen-iqf" element={<FrozenIQF />} />
           <Route path="/product/:type/:id" element={<ProductDetail />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />

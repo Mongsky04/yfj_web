@@ -1,12 +1,13 @@
 // src/pages/ProductDetail.jsx
 import TokpedLogo from "../assets/images/tokped.png"
 import Shopeelogo from "../assets/images/shoepe.png"
+import TiktokLogo from "../assets/images/tiktok.png"
 import { useParams } from "react-router-dom";
-import { juice1, juice5, puree, concentrate } from "../components/data/products";
+import { juice1, juice5, puree, concentrate, importFruits, frozenIQF} from "../components/data/products";
 
 export default function ProductDetail() {
   const { type, id } = useParams();
-  const productLists = { juice1, juice5, puree, concentrate };
+  const productLists = { juice1, juice5, puree, concentrate, importFruits, frozenIQF };
   const productArray = productLists[type];
   const product = productArray?.find((p) => p.id === parseInt(id));
 
@@ -29,10 +30,6 @@ export default function ProductDetail() {
           {product.name.toUpperCase()}
         </h1>
 
-        <div className="mb-2">
-          <span className="text-green-600 font-semibold text-xl">Rp.{product.price},00</span>
-        </div>
-
 
         <p className="mb-4 text-gray-700">
             {product.description}
@@ -49,7 +46,7 @@ export default function ProductDetail() {
 
 
         <p className="text-sm text-gray-600">
-          Formulated using quality fruit ingredients and processed for consistent taste and versatility in beverages, desserts, and cooking.
+          Formulated and selected using high-quality fruit ingredients — whether in the form of fresh imported fruits, premium purees, refreshing juices, or IQF (Individually Quick Frozen) cuts — each product is processed for consistent taste, freshness, and versatile use in beverages, desserts, and culinary creations.
         </p>
 
           <div className="flex gap-10 mt-8 justify-center items-center">
@@ -72,6 +69,18 @@ export default function ProductDetail() {
             >
               <img
                 src={Shopeelogo}
+                alt="Shopee"
+                className="w-[120px] h-auto hover:opacity-80 transition-opacity"
+              />
+            </a>
+            
+                        <a
+              href="https://shopee.co.id/yfj1883?is_from_login=true"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src={TiktokLogo}
                 alt="Shopee"
                 className="w-[120px] h-auto hover:opacity-80 transition-opacity"
               />

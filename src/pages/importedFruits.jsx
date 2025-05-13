@@ -1,13 +1,19 @@
 import { Link } from "react-router-dom";
 
-// Import Concentrates
-import AppleConce from "../assets/images/products/concentrate/AppleConcentrate.png";
-import OrangeConce from "../assets/images/products/concentrate/OrangeConcentrate.png";
+//Import IF
+import AppleFuji from "../assets/images/products/importfruit/apple fuji.jpg";
+import GreenApple from "../assets/images/products/importfruit/green apple.jpeg";
+import LemonKarton from "../assets/images/products/importfruit/lemon karton.jpg";
+import OrangeKarton from "../assets/images/products/importfruit/orange karton.jpg";
+import RedApple from "../assets/images/products/importfruit/red apple.jpg";
 
-// Concentrate product data
-const concentrate = [
-  { id: 1, name: "Apple Concentrate", src: AppleConce },
-  { id: 2, name: "Orange Concentrate", src: OrangeConce },
+// Imported Fruits Data
+const importFruits = [
+  { id: 1, name: "Apple Fuji", src: AppleFuji },
+  { id: 2, name: "Green Apple", src: GreenApple },
+  { id: 3, name: "Lemon in Carton", src: LemonKarton },
+  { id: 4, name: "Orange in Carton", src: OrangeKarton },
+  { id: 5, name: "Red Apple", src: RedApple },
 ];
 
 // Components
@@ -53,18 +59,18 @@ const ProductCard = ({ id, name, src, onSale, type }) => (
 );
 
 // Main component export
-export default function Concentrate() {
+export default function ImportedFruits() {
   return (
     <main className="max-w-7xl mx-auto px-6 py-12 space-y-16">
       <PageHeader
-        title="CONCENTRATES ONLY"
-        subtitle="Browse our selection of concentrate juice products."
+        title="IMPORTED FRUITS"
+        subtitle="Explore our range of fresh imported fruit products."
       />
 
-      <Section title="Concentrates">
+      <Section title="Imported Fruits">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {concentrate.map((product) => (
-            <ProductCard key={product.id} {...product} type="concentrate" />
+          {importFruits.map((product) => (
+            <ProductCard key={product.id} {...product} type="importFruits" />
           ))}
         </div>
       </Section>

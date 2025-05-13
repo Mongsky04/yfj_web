@@ -2,42 +2,39 @@ import { useState } from "react";
 import TextInput from "./input";
 
 export default function OrderForm() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const contact = form.contact.value;
-    const email = form.email.value;
-    const location = form.location.value;
-    const date = form.date.value;
-    const business = form.business.value;
-    const phone = form.number.value;
-    const guestCount = form.guestCount.value;
-    const serviceType = form.serviceType.value;
-    const description = form.description.value;
+ const handleSubmit = (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const contact = form.contact.value;
+  const email = form.email.value;
+  const location = form.location.value;
+  const date = form.date.value;
+  const business = form.business.value;
+  const phone = form.number.value;
+  const guestCount = form.guestCount.value;
+  const serviceType = form.serviceType.value;
+  const description = form.description.value;
 
-    const to = "Sales@yulianajuice.com";
-    const subject = `New Order from ${contact}`;
-    const body = [
-      `Contact Name: ${contact}`,
-      `Email:        ${email}`,
-      `Location:     ${location}`,
-      `Date:         ${date}`,
-      `Business:     ${business}`,
-      `Phone:        ${phone}`,
-      `Guests:       ${guestCount}`,
-      `Service:      ${serviceType}`,
-      ``,
-      `Details:`,
-      `${description}`,
-    ].join("\n");
+  const body = [
+    `*New Order from ${contact}*`,
+    ``,
+    `Email: ${email}`,
+    `Business: ${business}`,
+    `Phone: ${phone}`,
+    `Location: ${location}`,
+    `Date: ${date}`,
+    `Number of Guests: ${guestCount}`,
+    `Service: ${serviceType}`,
+    ``,
+    `📝 Details:`,
+    `${description}`,
+  ].join("\n");
 
-    const mailtoLink =
-      `mailto:${to}` +
-      `?subject=${encodeURIComponent(subject)}` +
-      `&body=${encodeURIComponent(body)}`;
+  const whatsappNumber = "62895611714624";
+  const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(body)}`;
 
-    window.location.href = mailtoLink;
-  };
+  window.open(whatsappURL, "_blank");
+};
 
   return (
     <>

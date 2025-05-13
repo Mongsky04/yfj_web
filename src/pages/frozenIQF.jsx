@@ -1,13 +1,19 @@
 import { Link } from "react-router-dom";
 
-// Import Concentrates
-import AppleConce from "../assets/images/products/concentrate/AppleConcentrate.png";
-import OrangeConce from "../assets/images/products/concentrate/OrangeConcentrate.png";
+// Import Frozen IQF images
+import IQFBlueberry from "../assets/images/products/FrozenIQF/iqf blueberry.jpg";
+import IQFMixberry from "../assets/images/products/FrozenIQF/iqf mixberry.jpg";
+import IQFPineapple from "../assets/images/products/FrozenIQF/iqf pineapple.jpg";
+import IQFStrawberry from "../assets/images/products/FrozenIQF/iqf strawberry.jpg";
+import MIQFMango from "../assets/images/products/FrozenIQF/miqf mango.jpg";
 
-// Concentrate product data
-const concentrate = [
-  { id: 1, name: "Apple Concentrate", src: AppleConce },
-  { id: 2, name: "Orange Concentrate", src: OrangeConce },
+// Frozen IQF Data
+const frozenIQF = [
+  { id: 1, name: "IQF Blueberry", src: IQFBlueberry },
+  { id: 2, name: "IQF Mixberry", src: IQFMixberry },
+  { id: 3, name: "IQF Pineapple", src: IQFPineapple },
+  { id: 4, name: "IQF Strawberry", src: IQFStrawberry },
+  { id: 5, name: "MIQF Mango", src: MIQFMango },
 ];
 
 // Components
@@ -53,18 +59,18 @@ const ProductCard = ({ id, name, src, onSale, type }) => (
 );
 
 // Main component export
-export default function Concentrate() {
+export default function FrozenIQF() {
   return (
     <main className="max-w-7xl mx-auto px-6 py-12 space-y-16">
       <PageHeader
-        title="CONCENTRATES ONLY"
-        subtitle="Browse our selection of concentrate juice products."
+        title="FROZEN IQF"
+        subtitle="Browse our Individually Quick Frozen fruit collection."
       />
 
-      <Section title="Concentrates">
+      <Section title="Frozen IQF">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {concentrate.map((product) => (
-            <ProductCard key={product.id} {...product} type="concentrate" />
+          {frozenIQF.map((product) => (
+            <ProductCard key={product.id} {...product} type="frozenIQF" />
           ))}
         </div>
       </Section>

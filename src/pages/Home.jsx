@@ -22,7 +22,7 @@ const Home = () => {
             Yuliana Fresh Juice
           </h1>
           <p className="-mt-1 text-lg md:text-xl font-[Inter] text-[#1F2937]">
-            Legacy of Mother's Nature
+            Legacy of Mother Nature
           </p>
         </div>
 

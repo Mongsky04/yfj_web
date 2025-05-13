@@ -2,34 +2,32 @@ import { useState } from "react";
 import TextInput from "./input";
 
 export default function ContactForm() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const contact = form.contact.value;
-    const email = form.email.value;
-    const business = form.business.value;
-    const phone = form.number.value;
-    const message = form.description.value;
+ const handleSubmit = (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const contact = form.contact.value;
+  const email = form.email.value;
+  const business = form.business.value;
+  const phone = form.number.value;
+  const message = form.description.value;
 
-    const to = "sales@yulianajuice.com";
-    const subject = `New Message from ${contact}`;
-    const body = [
-      `Contact Name: ${contact}`,
-      `Email:        ${email}`,
-      `Business:     ${business}`,
-      `Phone:        ${phone}`,
-      ``,
-      `Message:`,
-      `${message}`,
-    ].join("\n");
+  const body = [
+    `*New Contact Message*`,
+    ``,
+    `Name: ${contact}`,
+    `Email: ${email}`,
+    `Business: ${business}`,
+    `Phone: ${phone}`,
+    ``,
+    `Message:`,
+    `${message}`,
+  ].join("\n");
 
-    const mailtoLink =
-      `mailto:${to}` +
-      `?subject=${encodeURIComponent(subject)}` +
-      `&body=${encodeURIComponent(body)}`;
+  const whatsappNumber = "62895611714624";
+  const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(body)}`;
 
-    window.location.href = mailtoLink;
-  };
+  window.open(whatsappURL, "_blank");
+};
 
   return (
     <>

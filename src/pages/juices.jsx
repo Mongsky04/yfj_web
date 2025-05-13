@@ -85,22 +85,26 @@ const Section = ({ title, children }) => (
   </section>
 );
 
-const ProductCard = ({ name, src }) => (
-  <div className="relative group">
-    <span className="absolute top-2 left-2 bg-yellow-400 text-white text-xs font-semibold px-2 py-1 rounded">
-      Sale
-    </span>
-    <div className="overflow-hidden rounded-lg shadow-lg group-hover:shadow-xl transition-shadow">
-      <img
-        src={src}
-        alt={name}
-        className="w-full h-auto object-contain group-hover:scale-105 transition-transform cursor-pointer"
-      />
+const ProductCard = ({ id, name, src, onSale, type }) => (
+  <Link to={`/product/${type}/${id}`} className="block">
+    <div className="relative group">
+      {onSale && (
+        <span className="absolute top-2 left-2 bg-yellow-400 text-white text-xs font-semibold px-2 py-1 rounded">
+          Sale
+        </span>
+      )}
+      <div className="overflow-hidden rounded-lg shadow-lg group-hover:shadow-xl transition-shadow">
+        <img
+          src={src}
+          alt={name}
+          className="w-full h-auto object-contain group-hover:scale-105 transition-transform"
+        />
+      </div>
+      <p className="mt-4 text-center font-bold text-gray-500 uppercase group-hover:text-yellow-500">
+        {name}
+      </p>
     </div>
-    <p className="mt-4 text-center font-bold text-gray-500 uppercase hover:text-yellow-500 cursor-pointer">
-      {name}
-    </p>
-  </div>
+  </Link>
 );
 
 // Main component export
@@ -112,30 +116,18 @@ export default function JuiceOnly() {
         subtitle="View our available juice products by size."
       />
 
-      <Section
-        title={
-          <Link to="/product/juices" className="hover:text-yellow-500">
-            Juices – 1 Litre
-          </Link>
-        }
-      >
+      <Section title="Juices – 1 Litre">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {juice1.map((product) => (
-            <ProductCard key={product.id} name={product.name} src={product.src} />
+            <ProductCard key={product.id} {...product} type="juice1" />
           ))}
         </div>
       </Section>
 
-      <Section
-        title={
-          <Link to="/product/juices" className="hover:text-yellow-500">
-            Juices – 5 Litre
-          </Link>
-        }
-      >
+      <Section title="Juices – 5 Litre">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {juice5.map((product) => (
-            <ProductCard key={product.id} name={product.name} src={product.src} />
+            <ProductCard key={product.id} {...product} type="juice5" />
           ))}
         </div>
       </Section>

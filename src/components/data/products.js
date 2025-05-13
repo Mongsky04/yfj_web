@@ -1,5 +1,4 @@
 
-
 // --- Juice 1 Litre Imports ---
 import Cranberry1 from "../../assets/images/products/juice1ltr/Cranberry.png";
 import Lemon1 from "../../assets/images/products/juice1ltr/Lemon.png";
@@ -38,6 +37,20 @@ import OrangeConce from "../../assets/images/products/concentrate/OrangeConcentr
 // Import Puree
 import StrawberryPuree from "../../assets/images/products/puree/StrawberryPuree.png";
 import MangoPuree from "../../assets/images/products/puree/MangoPuree.png";
+
+//Import IF
+import AppleFuji from "../../assets/images/products/importfruit/apple fuji.jpg";
+import GreenApple from "../../assets/images/products/importfruit/green apple.jpeg";
+import LemonKarton from "../../assets/images/products/importfruit/lemon karton.jpg";
+import OrangeKarton from "../../assets/images/products/importfruit/orange karton.jpg";
+import RedApple from "../../assets/images/products/importfruit/red apple.jpg";
+
+// Import Frozen IQF images
+import IQFBlueberry from "../../assets/images/products/FrozenIQF/iqf blueberry.jpg";
+import IQFMixberry from "../../assets/images/products/FrozenIQF/iqf mixberry.jpg";
+import IQFPineapple from "../../assets/images/products/FrozenIQF/iqf pineapple.jpg";
+import IQFStrawberry from "../../assets/images/products/FrozenIQF/iqf strawberry.jpg";
+import MIQFMango from "../../assets/images/products/FrozenIQF/miqf mango.jpg";
 
 export const juice1 = [
   {
@@ -425,4 +438,80 @@ export const concentrate = [
       shopee: "https://shopee.co.id/orange-concentrate"
     }
   }
+];
+
+export const importFruits = [
+  {
+    id: 1,
+    name: "Apple Fuji",
+    size: "1 Kg",
+    src: AppleFuji,
+    description: "Fresh imported Fuji apples packed with flavor.",
+  },
+  {
+    id: 2,
+    name: "Green Apple",
+    size: "1 Kg",
+    src: GreenApple,
+    description: "Tart and crisp green apples in premium packaging.",
+  },
+  {
+    id: 3,
+    name: "Lemon in Carton",
+    size: "1 Kg",
+    src: LemonKarton,
+    description: "Carton-packed lemons ready for wholesale or retail.",
+  },
+  {
+    id: 4,
+    name: "Orange in Carton",
+    size: "1 Kg",
+    src: OrangeKarton,
+    description: "Fresh oranges packed neatly in cartons.",
+  },
+  {
+    id: 5,
+    name: "Red Apple",
+    size: "1 Kg",
+    src: RedApple,
+    description: "Crisp and sweet red apples in cardboard box.",
+  },
+];
+
+export const frozenIQF = [
+  {
+    id: 1,
+    name: "IQF Blueberry",
+    src: IQFBlueberry,
+    description: "Individually quick frozen blueberries for long shelf life and fresh taste.",
+    size: "1 kg",
+  },
+  {
+    id: 2,
+    name: "IQF Mixberry",
+    src: IQFMixberry,
+    description: "A frozen mix of premium berries perfect for smoothies and desserts.",
+    size: "1 kg",
+  },
+  {
+    id: 3,
+    name: "IQF Pineapple",
+    src: IQFPineapple,
+    description: "Frozen pineapple cubes, sweet and ready for baking or drinks.",
+    size: "1 kg",
+  },
+  {
+    id: 4,
+    name: "IQF Strawberry",
+    src: IQFStrawberry,
+    description: "Frozen whole strawberries perfect for sauces, cakes, or smoothies.",
+    size: "1 kg",
+  },
+  {
+    id: 5,
+    name: "MIQF Mango",
+    src: MIQFMango,
+    description: "Mango in mixed IQF cuts, convenient for recipes or fresh snacking.",
+    size: "1 kg",
+  },
 ];
