@@ -4,8 +4,8 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
 const defaultCenter = {
-  lat: -6.1499926714737105,
-  lng: 106.88673170291361,
+  lat: -6.150172885824203,
+  lng: 106.88468791142004,
 };
 
 export default function OSMMap({ center = defaultCenter, zoom = 60 }) {

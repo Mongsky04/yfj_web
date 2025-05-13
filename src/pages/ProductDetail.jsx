@@ -1,5 +1,6 @@
 // src/pages/ProductDetail.jsx
-
+import TokpedLogo from "../assets/images/tokped.png"
+import Shopeelogo from "../assets/images/shoepe.png"
 import { useParams } from "react-router-dom";
 import { juice1, juice5, puree, concentrate } from "../components/data/products";
 
@@ -29,15 +30,12 @@ export default function ProductDetail() {
         </h1>
 
         <div className="mb-2">
-          <span className="text-green-600 font-semibold text-xl">$35.70</span>
-          <span className="line-through text-gray-500 ml-2">$42.00</span>
+          <span className="text-green-600 font-semibold text-xl">Rp.{product.price},00</span>
         </div>
-
-        <div className="text-green-700 font-medium mb-2">You save: 15% ($6.30)</div>
 
 
         <p className="mb-4 text-gray-700">
-            {product.name} is made with pure mountain spring water, cold-pressed, and adaptogens, to reduce stress and inflammation.
+            {product.description}
         </p>
 
 
@@ -51,18 +49,35 @@ export default function ProductDetail() {
 
 
         <p className="text-sm text-gray-600">
-          Sparkling Mountain Spring Water, Cold-Pressed Juice,* Cold-Pressed Ginger Juice,* Cold-Pressed Turmeric Juice,* Coconut Nectar,* Ashwagandha,* Cayenne Pepper,* Black Pepper*
+          Formulated using quality fruit ingredients and processed for consistent taste and versatility in beverages, desserts, and cooking.
         </p>
 
-        <p className="text-sm text-gray-400 mt-1">*Certified Organic Ingredients</p>
+          <div className="flex gap-10 mt-8 justify-center items-center">
+            <a
+              href="https://www.tokopedia.com/yulianafreshjuic/etalase/yuliana-fresh-juice"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src={TokpedLogo}
+                alt="Tokopedia"
+                className="w-[120px] h-auto hover:opacity-80 transition-opacity"
+              />
+            </a>
 
-        <div className="flex gap-6 mt-8">
-          <img src="/icons/sf.svg" alt="Made in SF" className="h-10" />
-          <img src="/icons/pickup.svg" alt="Pickup" className="h-10" />
-          <img src="/icons/recycle.svg" alt="Recycle" className="h-10" />
-          <img src="/icons/spring.svg" alt="Spring Water" className="h-10" />
-          <img src="/icons/shipping.svg" alt="Shipping" className="h-10" />
-        </div>
+            <a
+              href="https://shopee.co.id/yfj1883?is_from_login=true"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src={Shopeelogo}
+                alt="Shopee"
+                className="w-[120px] h-auto hover:opacity-80 transition-opacity"
+              />
+            </a>
+          </div>
+
       </div>
     </div>
   );

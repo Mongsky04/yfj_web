@@ -16,7 +16,7 @@ export default function OrderForm() {
     const description = form.description.value;
 
     const to = "Sales@yulianajuice.com";
-    const subject = `New Juice Order from ${contact}`;
+    const subject = `New Order from ${contact}`;
     const body = [
       `Contact Name: ${contact}`,
       `Email:        ${email}`,

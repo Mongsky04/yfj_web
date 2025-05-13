@@ -19,10 +19,10 @@ const Home = () => {
         {/* Text in the center */}
         <div className="z-10">
           <h1 className="text-4xl md:text-5xl font-moul text-[#1F2937] font-bold">
-            Yuliana Fresh Juice!
+            Yuliana Fresh Juice
           </h1>
           <p className="-mt-1 text-lg md:text-xl font-[Inter] text-[#1F2937]">
-            Fresh Juice you could ever get
+            Legacy of Mother's Nature
           </p>
         </div>
 
@@ -73,74 +73,118 @@ const Home = () => {
           </div>
       </section>
 
+      <section className="w-full bg-white py-16 px-6 flex flex-col items-center text-center mb-70">
+          {/* Heading */}
+          <h2 className="text-4xl md:text-5xl text-[#1F2937] font-moul te font-bold">
+            Service
+          </h2>
+          <p className="-mt-2 text-lg md:text-xl font-[Inter] text-[#1F2937] text-bold ">
+            What kind of services do we offer?
+          </p>
 
-      <section className="w-full bg-white py-16 px-6 text-center mb-50">
-        {/* Grid Atas */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 place-items-center mb-25">
-          {[
-            { label: 'Event', src: '/event.png' },
-            { label: 'Wholesale', src: '/wholesale.png' },
-            { label: 'Daily', src: '/daily.png' },
-          ].map((item, idx) => (
-            <div
-              key={`top-${idx}`}
-              className="transition-transform duration-500 transform hover:scale-105 animate-slide-up"
-            >
+          {/* Grid of cards */}
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-12 w-full max-w-5xl">
+            {/* Card 1 */}
+            <div className="group transition-transform duration-300 hover:scale-105">
               <img
-                src={item.src}
-                alt={item.label}
-                className="w-80 h-auto pointer-events-none"
+                src="/event.png"
+                alt="Juices"
+                className="w-full h-auto rounded-md shadow"
               />
-              <p className="mt-2 text-base text-[24px] font-semibold font-[Inter] text-[#2D2D2D]">
-                {item.label}
+              <h3 className="mt-4 text-xl font-extrabold  text-[#1F2937] font-moul">Event</h3>
+              <p className="-mt-1 text-lg  text-[#1F2937] font-[Inter]">
+                Events
               </p>
             </div>
-          ))}
-        </div>
 
-        {/* Judul */}
-        <h1 className="text-4xl md:text-5xl font-moul text-[#1F2937] font-bold">
-          Services!
-        </h1>
-        <p className="-mt-1 text-lg md:text-xl font-[Inter] text-gray-600">
-          What kind of services do we serve?
-        </p>
-
-        {/* Grid Bawah */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 place-items-center mt-25">
-          {[
-            { label: 'Business to Business', src: '/b2b.png' },
-            { label: 'Custom', src: '/custom.png' },
-            { label: 'Other', src: '/other.png' },
-          ].map((item, idx) => (
-            <div
-              key={`top-${idx}`}
-              className="transition-transform duration-500 transform hover:scale-105 animate-slide-up"
-            >
+            {/* Card 2 */}
+            <div className="group transition-transform duration-300 hover:scale-105">
               <img
-                src={item.src}
-                alt={item.label}
-                className="w-80 h-auto pointer-events-none"
+                src="/wholesale.png"
+                alt="Other Fruits Products"
+                className="w-full h-auto rounded-md shadow"
               />
-              <p className="mt-2 text-base text-[24px] font-semibold font-[Inter] text-[#2D2D2D]">
-                {item.label}
+              <h3 className="mt-4 text-xl font-extrabold  text-[#1F2937] font-moul">Wholesale</h3>
+              <p className="-mt-1 text-lg text-[#1F2937] font-[Inter]">
+                Bulk purchase for cheaper price
               </p>
             </div>
-          ))}
-        </div>
+          </div>
+
+            <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-12 w-full max-w-5xl">
+            {/* Card 1 */}
+           <div className="group transition-transform duration-300 hover:scale-105">
+              <img
+                src="/daily.png"
+                alt="Juices"
+                className="w-full h-auto rounded-md shadow"
+              />
+              <h3 className="mt-4 text-xl font-extrabold  text-[#1F2937] font-moul">Daily</h3>
+              <p className="-mt-1 text-lg  text-[#1F2937] font-[Inter]">
+                Daily consumption
+              </p>
+            </div>
+
+            {/* Card 2 */}
+            <div className="group transition-transform duration-300 hover:scale-105">
+              <img
+                src="/b2b.png"
+                alt="Other Fruits Products"
+                className="w-full h-auto rounded-md shadow"
+              />
+              <h3 className="mt-4 text-xl font-extrabold  text-[#1F2937] font-moul">Business to Business</h3>
+              <p className="-mt-1 text-lg text-[#1F2937] font-[Inter]">
+                Services to other businesses
+              </p>
+            </div>
+          </div>
+
+            <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-12 w-full max-w-5xl">
+            {/* Card 1 */}
+            <div className="group transition-transform duration-300 hover:scale-105">
+              <img
+                src="/custom.png"
+                alt="Juices"
+                className="w-full h-auto rounded-md shadow"
+              />
+              <h3 className="mt-4 text-xl font-extrabold  text-[#1F2937] font-moul">Custom</h3>
+              <p className="-mt-1 text-lg  text-[#1F2937] font-[Inter]">
+                Custom sizes
+              </p>
+            </div>
+
+            {/* Card 2 */}
+            <div className="group transition-transform duration-300 hover:scale-105">
+              <img
+                src="/other.png"
+                alt="Other Fruits Products"
+                className="w-full h-auto rounded-md shadow"
+              />
+              <h3 className="mt-4 text-xl font-extrabold  text-[#1F2937] font-moul">Other</h3>
+              <p className="-mt-1 text-lg text-[#1F2937] font-[Inter]">
+                Other services that we may offer
+              </p>
+            </div>
+          </div>
       </section>
 
-      <section className="w-full bg-black">
-        <video
+        <section className="w-full bg-white py-16 px-6 flex flex-col items-center text-center mb-70">
+          {/* Heading */}
+          <h2 className="text-4xl md:text-5xl text-[#1F2937] font-moul te font-bold">
+            Don't miss it
+          </h2>
+          <p className="-mt-2 text-lg md:text-xl font-[Inter] text-[#1F2937] text-bold mb-15">
+            Catch the highlights before anyone else.
+          </p>
+          <video
           src="/jusbagus.mp4"
           autoPlay
           loop
           muted
           playsInline
-          className="w-full h-auto object-cover"
+          className="w-full h-svh object-contain"
         />
-      </section>
-
+        </section>
     </>
   );
 };

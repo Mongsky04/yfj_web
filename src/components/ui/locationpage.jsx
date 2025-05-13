@@ -35,7 +35,7 @@ function Location() {
           <div>
             <p className="font-bold font-montserrat text-[20px]">Address</p>
             <p className="text-[16px] font-inter">
-              Jl. Mitra Sunter Boulevard Blok EI No. 10 Jakarta 14350 – Indonesia
+              Jln Mitra Sunter Blvd No.10, RT.9/RW.11, Sunter Jaya, Tanjung Priok, North Jakarta City, Jakarta 14350
             </p>
           </div>
           <div>
@@ -55,7 +55,7 @@ function Location() {
           <div>
             <p className="font-bold font-montserrat text-[20px]">Email</p>
             <p className="text-[16px] font-inter">Sales@yulianajuice.com</p>
-            <p className="text-[16px] font-inter">Sales@yulianajuice.com</p>
+            <p className="text-[16px] font-inter">yfj.adm@gmail.com</p>
           </div>
         </div>
       </div>
