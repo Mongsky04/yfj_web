@@ -117,7 +117,7 @@ export default function JuiceOnly() {
       />
 
       <Section title="Juices – 1 Litre">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
           {juice1.map((product) => (
             <ProductCard key={product.id} {...product} type="juice1" />
           ))}
@@ -125,7 +125,7 @@ export default function JuiceOnly() {
       </Section>
 
       <Section title="Juices – 5 Litre">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
           {juice5.map((product) => (
             <ProductCard key={product.id} {...product} type="juice5" />
           ))}

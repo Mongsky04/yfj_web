@@ -68,7 +68,7 @@ export default function ImportedFruits() {
       />
 
       <Section title="Imported Fruits">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
           {importFruits.map((product) => (
             <ProductCard key={product.id} {...product} type="importFruits" />
           ))}
