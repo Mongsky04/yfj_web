@@ -138,7 +138,7 @@ export default function AllProducts() {
       />
 
       <Section title="Juices – 1 Litre">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
           {juice1.map((product) => (
             <ProductCard key={product.id} {...product} type="juice1" />
           ))}
@@ -146,7 +146,7 @@ export default function AllProducts() {
       </Section>
 
       <Section title="Juices – 5 Litre">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
           {juice5.map((product) => (
             <ProductCard key={product.id} {...product} type="juice5" />
           ))}
@@ -154,7 +154,7 @@ export default function AllProducts() {
       </Section>
 
       <Section title="Purees">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
           {puree.map((product) => (
             <ProductCard key={product.id} {...product} type="puree" />
           ))}
@@ -162,7 +162,7 @@ export default function AllProducts() {
       </Section>
 
       <Section title="Concentrates">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
           {concentrate.map((product) => (
             <ProductCard key={product.id} {...product} type="concentrate" />
           ))}
@@ -170,7 +170,7 @@ export default function AllProducts() {
       </Section>
 
       <Section title="Imported Fruits">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
           {importFruits.map((product) => (
             <ProductCard key={product.id} {...product} type="importFruits" />
           ))}
@@ -178,7 +178,7 @@ export default function AllProducts() {
       </Section>
 
       <Section title="Frozen IQF">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
           {frozenIQF.map((product) => (
             <ProductCard key={product.id} {...product} type="frozenIQF" />
           ))}
