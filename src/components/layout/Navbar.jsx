@@ -55,7 +55,7 @@ const ProductDropdown = ({ items, onSelect }) => {
       {open && (
         <ul className="absolute mt-2 w-56 bg-white shadow-lg rounded-lg z-20">
           {items.map((item, idx) => (
-            <li key={idx} className="border-b last:border-none">
+            <li key={idx} className="border-b border-none">
               <LinkItem
                 to={item.to}
                 onClick={() => {
