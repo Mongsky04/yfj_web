@@ -79,7 +79,7 @@ function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-white shadow sticky top-0 z-50">
+    <nav className="bg-white shadow sticky top-0 z-[10000]">
       <div className="mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
         <Link to={"/"}>
