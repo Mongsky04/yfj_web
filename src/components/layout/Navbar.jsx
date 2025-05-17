@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import LOGO from "../../assets/images/YFJ.png";
 
-// Dropdown items for "Product"
 const productItems = [
   { label: "All Products", to: "/product/all" },
   { label: "Juices", to: "/product/juices" },
@@ -12,7 +11,6 @@ const productItems = [
   { label: "Frozen IQF", to: "/product/frozen-iqf" },
 ];
 
-// Main navigation config
 const navConfig = [
   { label: "HOME", to: "/" },
   { label: "Product", dropdown: productItems },
@@ -20,35 +18,33 @@ const navConfig = [
   { label: "CONTACT", to: "/contact" },
 ];
 
-// Simple NavLink wrapper with active styling
 const LinkItem = ({ to, children, onClick }) => (
   <NavLink
     to={to}
     end
     onClick={onClick}
     className={({ isActive }) =>
-      ` font-bold ${
-        isActive ? " text-[#FFB22C]" : " text-gray-500"
-      }  hover:text-[#FFB22C]`
+      `block font-bold ${
+        isActive ? "text-[#FFB22C]" : "text-gray-500"
+      } hover:text-[#FFB22C]`
     }
   >
     {children}
   </NavLink>
 );
 
-// Product dropdown component
-const ProductDropdown = ({ items }) => {
+const ProductDropdown = ({ items, onSelect }) => {
   const [open, setOpen] = useState(false);
   return (
-    <div className=" relative">
+    <div className="relative">
       <button
-        onClick={() => setOpen((o) => !o)}
-        className={` flex items-center font-bold cursor-pointer uppercase ${
-          open ? " text-[#FFB22C]" : " text-gray-500"
-        }  hover:text-[#FFB22C] focus:outline-none`}
+        onClick={() => setOpen((prev) => !prev)}
+        className={`flex items-center font-bold uppercase ${
+          open ? "text-[#FFB22C]" : "text-gray-500"
+        } hover:text-[#FFB22C]`}
       >
         Product
-        <svg className=" w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+        <svg className="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
           <path
             fillRule="evenodd"
             d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06L10.53 12a.75.75 0 01-1.06 0L5.23 8.27a.75.75 0 01.02-1.06z"
@@ -56,13 +52,18 @@ const ProductDropdown = ({ items }) => {
           />
         </svg>
       </button>
-
       {open && (
-        <ul className=" absolute -left-4 mt-10 w-56 bg-white shadow-lg rounded-lg overflow-hidden z-20">
+        <ul className="absolute mt-2 w-56 bg-white shadow-lg rounded-lg z-20">
           {items.map((item, idx) => (
-            <li key={idx} className=" px-0 py-0">
-              <LinkItem to={item.to} onClick={() => setOpen(false)}>
-                <span className=" block px-4 py-3 text-sm font-semibold">
+            <li key={idx} className="border-b last:border-none">
+              <LinkItem
+                to={item.to}
+                onClick={() => {
+                  setOpen(false);
+                  onSelect?.();
+                }}
+              >
+                <span className="block px-4 py-3 text-sm font-semibold">
                   {item.label}
                 </span>
               </LinkItem>
@@ -75,21 +76,53 @@ const ProductDropdown = ({ items }) => {
 };
 
 function Navbar() {
-  return (
-    <nav className=" bg-white shadow sticky top-0 z-50">
-      <div className=" mx-auto px-6 py-4 grid grid-cols-3 items-center">
-        {/* Logo on the left */}
-        <div>
-          <Link to={"/"}>
-            <img src={LOGO} alt="YFJ Logo" className=" h-20 cursor-pointer" />
-          </Link>
-        </div>
+  const [menuOpen, setMenuOpen] = useState(false);
 
-        {/* Centered navigation */}
-        <div className=" flex justify-center items-center space-x-8">
+  return (
+    <nav className="bg-white shadow sticky top-0 z-50">
+      <div className="mx-auto px-6 py-4 flex justify-between items-center">
+        {/* Logo */}
+        <Link to={"/"}>
+          <img src={LOGO} alt="YFJ Logo" className="h-16 cursor-pointer" />
+        </Link>
+
+        {/* Hamburger Button */}
+        <button
+          className="md:hidden text-gray-700 focus:outline-none"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            {menuOpen ? (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            ) : (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            )}
+          </svg>
+        </button>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex space-x-8 items-center">
           {navConfig.map((item) =>
             item.dropdown ? (
-              <ProductDropdown key={item.label} items={item.dropdown} />
+              <ProductDropdown
+                key={item.label}
+                items={item.dropdown}
+              />
             ) : (
               <LinkItem key={item.to} to={item.to}>
                 {item.label}
@@ -97,10 +130,30 @@ function Navbar() {
             )
           )}
         </div>
-
-        {/* Right placeholder (empty) */}
-        <div />
       </div>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="md:hidden px-6 pb-4 space-y-3">
+          {navConfig.map((item) =>
+            item.dropdown ? (
+              <ProductDropdown
+                key={item.label}
+                items={item.dropdown}
+                onSelect={() => setMenuOpen(false)}
+              />
+            ) : (
+              <LinkItem
+                key={item.to}
+                to={item.to}
+                onClick={() => setMenuOpen(false)}
+              >
+                {item.label}
+              </LinkItem>
+            )
+          )}
+        </div>
+      )}
     </nav>
   );
 }
