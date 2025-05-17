@@ -30,7 +30,7 @@ export default function OrderForm() {
     `${description}`,
   ].join("\n");
 
-  const whatsappNumber = "62895611714624";
+  const whatsappNumber = "62216504565";
   const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(body)}`;
 
   window.open(whatsappURL, "_blank");
@@ -129,7 +129,7 @@ export default function OrderForm() {
               placeholder="Your details…"
               as="textarea"
               rows={2}
-              className="!max-w-full"
+              className="!max-w-full resize-none"
             />
           </div>
         </div>

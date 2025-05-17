@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import OSMMap from './map'
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import 'leaflet/dist/leaflet.css';
 
 function Location() {
@@ -7,6 +9,23 @@ function Location() {
     lat: -6.1499926714737105,
     lng: 106.88673170291361
   })
+
+const location = useLocation();
+
+useEffect(() => {
+  if (location.hash) {
+    const el = document.querySelector(location.hash);
+    if (el) {
+      setTimeout(() => {
+        const yOffset = -100; // Adjust based on your navbar height
+        const y =
+          el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }, 0);
+    }
+  }
+}, [location]);
 
   return (
     <>

@@ -1,5 +1,17 @@
 import React from "react";
 import Navbar from "../components/layout/Navbar";
+import { Link } from "react-router-dom";
+import Van from '../assets/images/van.jpg'
+import Orange from '../assets/images/orangepict.png'
+import VideoJuice from '../assets/images/videojuice.gif'
+import pict1 from '../assets/images/otherproduct.png'
+import Event from '../assets/images/event.png'
+import Wholesale from '../assets/images/wholesale.png'
+import Daily from '../assets/images/daily.png'
+import B2B from '../assets/images/b2b.png'
+import Custom from '../assets/images/custom.png'
+import Other from '../assets/images/other.png'
+import JuiceVideo from '../assets/images/jusbagus.mp4'
 
 const Home = () => {
   return (
@@ -9,7 +21,7 @@ const Home = () => {
       {/* Hero section */}
       <section className="relative w-full h-screen overflow-hidden">
         <img
-          src="/van.jpg"
+          src={Van}
           alt="Yuliana Fresh Juice Van"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -28,7 +40,7 @@ const Home = () => {
 
         {/* Image in bottom-right */}
         <img
-          src="/orangepict.png"
+          src={Orange}
           alt="Orange splash"
           className="absolute bottom-0 right-0 w-[300px] md:w-[400px] h-auto object-contain opacity-90 pointer-events-none animate-slide-up"
         />
@@ -46,30 +58,39 @@ const Home = () => {
           {/* Grid of cards */}
           <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-12 w-full max-w-5xl">
             {/* Card 1 */}
-            <div className="group transition-transform duration-300 hover:scale-105 active:scale-95 cursor-pointer">
+            <Link
+              to="/product/juices"
+              className="group block transition-transform duration-300 hover:scale-105 active:scale-95 cursor-pointer"
+            >
               <img
-                src="/videojuice.gif"
+                src={VideoJuice}
                 alt="Juices"
                 className="w-full h-auto rounded-md shadow"
               />
-              <h3 className="mt-4 text-xl font-extrabold  text-[#1F2937] font-moul">Juices</h3>
-              <p className="-mt-1 text-lg  text-[#1F2937] font-[Inter]">
+              <h3 className="mt-4 text-xl font-extrabold text-[#1F2937] font-moul">
+                Juices
+              </h3>
+              <p className="-mt-1 text-lg text-[#1F2937] font-[Inter]">
                 Try out our finest juice!
               </p>
-            </div>
+            </Link>
 
-            {/* Card 2 */}
-            <div className="group transition-transform duration-300 hover:scale-105 active:scale-95 cursor-pointer">
+            <Link
+              to="/product/purees"
+              className="group block transition-transform duration-300 hover:scale-105 active:scale-95 cursor-pointer"
+            >
               <img
-                src="/pict.jpg"
+                src={pict1}
                 alt="Other Fruits Products"
-                className="w-full h-auto rounded-md shadow"
+                className="w-full h-[275px] rounded-md shadow"
               />
-              <h3 className="mt-4 text-xl font-extrabold  text-[#1F2937] font-moul">Other Fruits Products</h3>
+              <h3 className="mt-4 text-xl font-extrabold text-[#1F2937] font-moul">
+                Other Fruits Products
+              </h3>
               <p className="-mt-1 text-lg text-[#1F2937] font-[Inter]">
                 We don't only serve juices
               </p>
-            </div>
+            </Link>
           </div>
       </section>
 
@@ -87,7 +108,7 @@ const Home = () => {
             {/* Card 1 */}
             <div className="group transition-transform duration-300 hover:scale-105">
               <img
-                src="/event.png"
+                src={Event}
                 alt="Juices"
                 className="w-full h-auto rounded-md shadow"
               />
@@ -100,7 +121,7 @@ const Home = () => {
             {/* Card 2 */}
             <div className="group transition-transform duration-300 hover:scale-105">
               <img
-                src="/wholesale.png"
+                src={Wholesale}
                 alt="Other Fruits Products"
                 className="w-full h-auto rounded-md shadow"
               />
@@ -115,7 +136,7 @@ const Home = () => {
             {/* Card 1 */}
            <div className="group transition-transform duration-300 hover:scale-105">
               <img
-                src="/daily.png"
+                src={Daily}
                 alt="Juices"
                 className="w-full h-auto rounded-md shadow"
               />
@@ -128,7 +149,7 @@ const Home = () => {
             {/* Card 2 */}
             <div className="group transition-transform duration-300 hover:scale-105">
               <img
-                src="/b2b.png"
+                src={B2B}
                 alt="Other Fruits Products"
                 className="w-full h-auto rounded-md shadow"
               />
@@ -143,7 +164,7 @@ const Home = () => {
             {/* Card 1 */}
             <div className="group transition-transform duration-300 hover:scale-105">
               <img
-                src="/custom.png"
+                src={Custom}
                 alt="Juices"
                 className="w-full h-auto rounded-md shadow"
               />
@@ -156,7 +177,7 @@ const Home = () => {
             {/* Card 2 */}
             <div className="group transition-transform duration-300 hover:scale-105">
               <img
-                src="/other.png"
+                src={Other}
                 alt="Other Fruits Products"
                 className="w-full h-auto rounded-md shadow"
               />
@@ -177,7 +198,7 @@ const Home = () => {
             Catch the highlights before anyone else.
           </p>
           <video
-          src="/jusbagus.mp4"
+          src={JuiceVideo}
           autoPlay
           loop
           muted

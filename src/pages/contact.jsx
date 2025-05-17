@@ -8,7 +8,10 @@ export default function Contact() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow p-6 space-y-12">
         <FormSwitcher />
-        <LocationPage />
+        <section id="location">
+          <LocationPage />
+        </section>
+        
       </main>
     </div>
   );

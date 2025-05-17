@@ -12,6 +12,9 @@ import Concentrate from "./pages/concentrate";
 import ProductDetail from "./pages/ProductDetail";
 import ImportedFruits from "./pages/importedFruits";
 import FrozenIQF from "./pages/frozenIQF";
+import Terms from "./pages/TermsandCondition";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import FAQsPage from "./pages/faqs";
 
 export default function App() {
   return (
@@ -30,6 +33,9 @@ export default function App() {
           <Route path="/product/:type/:id" element={<ProductDetail />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/faqs" element={<FAQsPage />} />
         </Routes>
       </main>
 

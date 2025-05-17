@@ -1,14 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 import ContactForm from "./ContactForm";
 import OrderForm from "./OrderForm";
-import Navbar from "../layout/Navbar";
 
 const FormSwitcher = () => {
+  const location = useLocation();
   const [showOrder, setShowOrder] = useState(false);
+  const formRef = useRef(null);
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const formType = params.get("form");
+
+    if (formType === "order") {
+      setShowOrder(true);
+    } else if (formType === "contact") {
+      setShowOrder(false);
+    }
+
+    setTimeout(() => {
+      if (formRef.current) {
+        const offset = 200
+        const topPos = formRef.current.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: topPos, behavior: "smooth" });
+      }
+    }, 200);
+  }, [location.search]);
 
   return (
-
-    <div className="relative h-screen bg-gray-50 m-10">
+    <div className="relative min-h-screen bg-gray-50 px-6 pt-20 pb-10">
+      {/* Toggle Switch */}
       <div className="absolute top-4 right-4 flex items-center space-x-2">
         <span
           className={`text-sm font-montserrat ${
@@ -36,7 +57,10 @@ const FormSwitcher = () => {
         </span>
       </div>
 
-      <div>{showOrder ? <OrderForm /> : <ContactForm />}</div>
+      {/* Form Section with scroll target */}
+      <div ref={formRef} className="mt-6">
+        {showOrder ? <OrderForm /> : <ContactForm />}
+      </div>
     </div>
   );
 };

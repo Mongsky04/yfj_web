@@ -25,7 +25,7 @@ const TextInput = ({
         className="
           px-3 py-2 bg-white border border-gray-200 rounded-lg
           placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#FFB22C]
-          text-sm font-montserrat resize-y min-h-[100px]
+          text-sm font-montserrat min-h-[100px] resize-none
         "
         {...rest}
       />
