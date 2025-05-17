@@ -15,11 +15,12 @@ import JuiceVideo from "../assets/images/jusbagus.mp4";
 const Home = () => {
   return (
     <>
-      <section className="w-full h-[50vw] overflow-hidden flex items-center justify-center">
+      {/* Hero section */}
+      <section className="w-full h-auto overflow-hidden flex items-center justify-center">
         <img
           src={Van}
           alt="Yuliana Fresh Juice Van"
-          className="w-100% max-w-lg h-auto object-contain"
+          className="w-full max-w-md h-auto object-contain"
         />
       </section>
 
@@ -93,8 +94,6 @@ const Home = () => {
         <p className="mt-1 text-base sm:text-lg md:text-xl font-[Inter] text-[#1F2937] font-semibold">
           What kind of services do we offer?
         </p>
-
-        {/* Grid for 6 service cards */}
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-10 w-full max-w-5xl">
           {[
             { img: Event, title: "Event", desc: "Events" },
