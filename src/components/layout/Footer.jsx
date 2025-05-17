@@ -47,7 +47,7 @@ const NavColumn = ({ items }) => (
 
 const Footer = () => (
   <footer className="bg-gray-100 text-gray-600 px-6 md:px-20 py-10">
-    <div className="flex flex-col lg:flex-row justify-between items-start gap-10 lg:gap-20">
+    <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-20">
       {/* Logo */}
       <div className="flex-shrink-0">
         <Link to="/">
