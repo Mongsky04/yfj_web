@@ -28,7 +28,7 @@ const navColumns = [
 ];
 
 const NavColumn = ({ items }) => (
-  <ul className="space-y-3 text-lg font-bold text-gray-500">
+  <ul className="space-y-3 text-base sm:text-lg font-semibold text-gray-600">
     {items.map(({ label, path, external }) => (
       <li key={label}>
         {external ? (
@@ -46,17 +46,17 @@ const NavColumn = ({ items }) => (
 );
 
 const Footer = () => (
-  <footer className="bg-gray-100 text-gray-500 px-6 md:px-20 py-10">
-    <div className="flex flex-col lg:flex-row justify-between items-start space-y-10 lg:space-y-0">
+  <footer className="bg-gray-100 text-gray-600 px-6 md:px-20 py-10">
+    <div className="flex flex-col lg:flex-row justify-between items-start gap-10 lg:gap-20">
       {/* Logo */}
-      <div className="flex-shrink-0 pr-40 cursor-pointer">
-        <Link to={"/"}>
-          <img src={Logo} alt="Yuliana Juice" className="w-32 object-contain" />
+      <div className="flex-shrink-0">
+        <Link to="/">
+          <img src={Logo} alt="Yuliana Juice" className="w-28 sm:w-32 object-contain" />
         </Link>
       </div>
 
       {/* Navigation Columns */}
-      <div className="flex flex-wrap gap-40 flex-1 justify-start">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 flex-1 w-full max-w-4xl">
         {navColumns.map((col, idx) => (
           <NavColumn key={idx} items={col.items} />
         ))}
@@ -65,7 +65,7 @@ const Footer = () => (
 
     <hr className="border-gray-300 my-8" />
 
-    <div className="text-xs text-gray-500 text-center font-semibold">
+    <div className="text-xs text-gray-500 text-center font-medium">
       © {new Date().getFullYear()} YFJ - Fresh Juice by Yuliana. All Rights Reserved.
     </div>
   </footer>
