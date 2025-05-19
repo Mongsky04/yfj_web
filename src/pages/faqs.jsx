@@ -58,10 +58,10 @@ export default function FAQsPage() {
     {
       question: "Can I order Yuliana Fresh Juice outside of Jakarta?",
       answer:
-        "Currently, we only deliver within the Jakarta area, but we are working to expand our reach.",
+        "Yes, we are able to deliver outside of Jakarta.",
     },
     {
-      question: "How long do my juices and elixirs last?",
+      question: "How long do my juices last?",
       answer: "Typically, our products last 3–5 days refrigerated.",
     },
     {

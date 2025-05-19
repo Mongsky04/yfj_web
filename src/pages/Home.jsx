@@ -16,13 +16,14 @@ const Home = () => {
   return (
     <>
       {/* Hero section */}
-      <section className="w-full h-auto overflow-hidden flex items-center justify-center">
+      <section className="w-full h-auto overflow-hidden">
         <img
           src={Van}
           alt="Yuliana Fresh Juice Van"
-          className="w-full max-w-md h-auto object-contain"
+          className="w-full h-auto object-cover"
         />
       </section>
+
 
       {/* Introduction Section */}
       <section className="relative w-full min-h-screen bg-white flex flex-col items-center justify-center text-center px-4 py-12">
