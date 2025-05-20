@@ -57,7 +57,6 @@ function Location() {
           <div>
             <p className="font-bold font-montserrat text-[20px]">Phone Number</p>
             <p className="text-[16px] font-inter">Tel: +6221 650 4565 (Hunting)</p>
-            <p className="text-[16px] font-inter">Fax: +6221 650 4571</p>
           </div>
         </div>
 

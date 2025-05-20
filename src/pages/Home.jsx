@@ -28,10 +28,10 @@ const Home = () => {
       {/* Introduction Section */}
       <section className="relative w-full min-h-screen bg-white flex flex-col items-center justify-center text-center px-4 py-12">
         <div className="z-10">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-moul text-[#1F2937] font-bold">
+          <h1 className=" font-helvetica text-3xl sm:text-4xl md:text-5xl font-moul text-[#1F2937] font-bold">
             Yuliana Fresh Juice
           </h1>
-          <p className="mt-2 text-base sm:text-lg md:text-xl font-[Inter] text-[#1F2937]">
+          <p className=" font-helvetica mt-2 text-base sm:text-lg md:text-xl text-[#1F2937]">
             Legacy of Mother Nature
           </p>
         </div>
@@ -44,10 +44,10 @@ const Home = () => {
 
       {/* What's New Section */}
       <section className="w-full bg-white py-16 px-4 flex flex-col items-center text-center">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl text-[#1F2937] font-moul font-bold">
+        <h2 className=" font-helvetica text-3xl sm:text-4xl md:text-5xl text-[#1F2937] font-moul font-bold">
           What's new?
         </h2>
-        <p className="mt-1 text-base sm:text-lg md:text-xl font-[Inter] text-[#1F2937] font-semibold">
+        <p className=" font-helvetica mt-1 text-base sm:text-lg md:text-xl text-[#1F2937] font-semibold">
           Try out our best seller products
         </p>
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-10 w-full max-w-5xl">
@@ -81,7 +81,7 @@ const Home = () => {
               Other Fruits Products
             </h3>
             <p className="-mt-1 text-lg text-[#1F2937] font-[Inter]">
-              We don't only serve juices
+              We have variety products!
             </p>
           </Link>
         </div>
@@ -109,7 +109,7 @@ const Home = () => {
               title: "Business to Business",
               desc: "Services to other businesses",
             },
-            { img: Custom, title: "Custom", desc: "Custom sizes" },
+            { img: Custom, title: "Custom", desc: "We accept custom printed logo" },
             {
               img: Other,
               title: "Other",

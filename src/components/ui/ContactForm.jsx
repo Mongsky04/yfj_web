@@ -23,7 +23,7 @@ export default function ContactForm() {
       `${message}`,
     ].join("\n");
 
-    const whatsappNumber = "62216504565";
+    const whatsappNumber = "6281211119571";
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(body)}`;
 
     window.open(whatsappURL, "_blank");
