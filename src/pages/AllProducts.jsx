@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { importFruits, frozenIQF } from "../components/data/products";
+import { importFruits, frozenIQF} from "../components/data/products";
 
 // Import Juice 1 Litre
 import Cranberry1 from "../assets/images/products/juice1ltr/Cranberry.png";
@@ -31,6 +31,12 @@ import Pineapple5 from "../assets/images/products/juice5ltr/Pineapple.png";
 import Orange5 from "../assets/images/products/juice5ltr/Orange.png";
 import Tomato5 from "../assets/images/products/juice5ltr/Tomato.png";
 import FlorenOrange5 from "../assets/images/products/juice5ltr/FlorenOrange.png";
+import FlorenMango5 from "../assets/images/products/juice5ltr/FlorenMango.png";
+import FlorenApple5 from "../assets/images/products/juice5ltr/FlorenApple.png";
+import FlorenPineapple5 from "../assets/images/products/juice5ltr/FlorenPineapple.png";
+import FlorenGuava5 from "../assets/images/products/juice5ltr/FlorenGuava.png";
+import Lychee5 from "../assets/images/products/juice5ltr/Lychee.png";
+
 
 // Import Concentrate
 import AppleConce from "../assets/images/products/concentrate/AppleConcentrate.png";
@@ -72,6 +78,11 @@ const juice5 = [
   { id: 12, name: "Orange Juice", src: Orange5, onSale: true },
   { id: 13, name: "Tomato Juice", src: Tomato5, onSale: true },
   { id: 14, name: "Floren Orange Juice", src: FlorenOrange5, onSale: true },
+  { id: 15, name: "Floren Apple Juice", src: FlorenApple5, onSale: true },
+  { id: 16, name: "Floren Mango Juice", src: FlorenMango5, onSale: true },
+  { id: 17, name: "Floren Pineapple Juice", src: FlorenPineapple5, onSale: true },
+  { id: 18, name: "Floren Guava Juice", src: FlorenGuava5, onSale: true },
+  { id: 19, name: "Lychee Juice", src: Lychee5, onSale: true }
 ];
 
 const puree = [

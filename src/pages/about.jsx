@@ -35,97 +35,104 @@ useEffect(() => {
   return (
     <>
       <div>
-        <img src={bannerImg} className='mb-15 w-full h-auto'></img>
+        <img src={bannerImg} className="mb-16 w-full h-auto" alt="Banner" />
       </div>
-      <div className='flex' id='story'>
-        <div className='flex-1'>
-          <img src={About1}></img>
+
+      <div className="flex flex-col md:flex-row items-center md:items-start px-4 md:px-16 gap-8" id="story">
+        {/* Image Section */}
+        <div className="w-full md:w-1/2">
+          <img src={About1} alt="About YFJ" className="w-full h-auto rounded" />
         </div>
-        <div className='flex flex-col justify-center items-center flex-1 m-4'>
-          <div className='w-full max-w-3xl'>
-            <p className='font-montserrat text-[36px] font-bold text-left'>Our Story</p>
-            <br />
-            <p className='font-inter text-[20px] text-justify'>
-            In the 1985s Mrs. Yuliana pioneer what has she been believing a fresh and healthy juice product with both innovation and strict quality control to become a pre-eminent supplier of superior produce.
-            Today we have gained a significant result of market share and has been accepted widely in the most executive clubs, cafes, restaurants and five stars hotels. And preferred by large group of people who have shared the idea of healthy living.
+
+        {/* Text Section */}
+        <div className="w-full md:w-1/2">
+          <p className="font-montserrat text-[28px] md:text-[36px] font-bold text-left mb-4">Our Story</p>
+          <p className="font-inter text-[16px] md:text-[20px] text-justify">
+            In the 1985s Mrs. Yuliana pioneered what she believed to be a fresh and healthy juice product — built on innovation and strict quality control — to become a pre-eminent supplier of superior produce.
+            <br /><br />
+            Today, we’ve gained a significant market share and are widely accepted by executive clubs, cafes, restaurants, and five-star hotels — preferred by people who share the idea of healthy living.
+          </p>
+        </div>
+      </div>
+
+
+      <div className="flex flex-col md:flex-row items-center px-4 md:px-16 gap-8 my-8 md:items-center">
+        <div className="w-full md:w-1/2 order-1 md:order-2">
+          <img src={About2} alt="YFJ Fruit Processing" className="w-full h-auto rounded" />
+        </div>
+
+        <div className="w-full md:w-1/2 order-2 md:order-1">
+          <p className="font-inter text-[16px] md:text-[20px] text-justify">
+            Yuliana Fresh Juice processes premium fruit from mostly locally grown tropical fruit and partly imported fruit, dedicated to wholesale activity. Healthy and hygienic fruit processing delivers efficiencies that offer our partners a distinct competitive advantage and fresh premium-quality products to consumers.
+          </p>
+        </div>
+      </div>
+
+      <div className="flex flex-col md:flex-row items-center md:items-center px-4 md:px-16 gap-8 my-8">
+        <div className="w-full md:w-1/2 order-1">
+          <img src={About3} alt="YFJ Legacy" className="w-full h-auto rounded" />
+        </div>
+
+        <div className="w-full md:w-1/2 order-2 flex flex-col justify-center items-center">
+          <div className="w-full max-w-3xl">
+            <p className="font-inter text-[16px] md:text-[20px] text-justify">
+              Yuliana Fresh Juice is a legacy of the vision of one mother and professionals who have continued to pursue her ideals.
+            </p>
+          </div>
+        </div>
+      </div>
+              
+      <div className="flex flex-col md:flex-row items-center md:items-start px-4 md:px-16 gap-8 my-8">
+        <div className="w-full md:w-1/2 order-1 md:order-2">
+          <img src={About4} alt="Fruit Quality" className="w-full h-auto rounded" />
+        </div>
+
+        <div className="w-full md:w-1/2 order-2 md:order-1 flex flex-col justify-center items-center">
+          <div className="w-full max-w-3xl">
+            <p className="font-montserrat text-[28px] md:text-[36px] font-bold text-left mb-4">Fruit Quality</p>
+            <p className="font-inter text-[16px] md:text-[20px] text-justify">
+              We annually process up to 100,000 kgs of premium tropical and imported fruit for key domestic markets.
+              <br /><br />
+              The Yuliana Fresh Juice brand is committed to innovation, new technology, and in-house research to deliver constant improvements in service to all of our customers.
             </p>
           </div>
         </div>
       </div>
 
-      <div className='flex'>
-        <div className='flex flex-col justify-center items-center flex-1 m-4'>
-          <div className='w-full max-w-3xl'>
-            <p className='font-inter text-[20px] text-justify'>
-            Yuliana Fresh Juice processes premium fruit from mostly locally growth tropical fruit and part imported fruit dedicated to the wholesale activity. Healthy and hygiene fruit processing delivers efficiencies that offer our partners a distinct competitive advantage and fresh premium quality product to consumers.
-            </p>
-          </div>
-        </div>
-        <div className='flex-1'>
-          <img src={About2}></img>
-        </div>
-      </div>
 
-      <div className='flex'>
-        <div className='flex-1'>
-          <img src={About3}></img>
+      <div className="flex flex-col md:flex-row items-center md:items-start px-4 md:px-16 gap-8 my-8">
+        <div className="w-full md:w-1/2 order-1">
+          <img src={About6} alt="Our Customers" className="w-full h-auto rounded" />
         </div>
-        <div className='flex flex-col justify-center items-center flex-1 m-4'>
-          <div className='w-full max-w-3xl'>
-            <p className='font-inter text-[20px] text-justify'>
-            Yuliana Fresh Juice is a legacy to the vision of one mother and professionals who have continued to pursue her ideals.
-            </p>
-          </div>
-        </div>
-      </div>
-        
 
-      <div className='flex'>
-        <div className='flex flex-col justify-center items-center flex-1 m-4'>
-          <div className='w-full max-w-3xl'>
-            <p className='font-montserrat text-[36px] font-bold text-left'>Fruit Quality</p>
-            <br />
-            <p className='font-inter text-[20px] text-justify'>
-            We are annually processes up to 100.000 kgs of premium tropical and imported fruit for key domestic markets.
-
-Yuliana Fresh Fruit Juice brand is committed to innovation, new technology and inhouse research to deliver constant improvements in service to all of our customer.
-            </p>
-          </div>
-        </div>
-        <div className='flex-1'>
-          <img src={About4}></img>
-        </div>
-      </div>
-
-      <div className='flex'>
-        <div className='flex-1'>
-          <img src={About6}></img>
-        </div>
-        <div className='flex flex-col justify-center items-center flex-1 m-4'>
-          <div className='w-full max-w-3xl'>
-            <p className='font-montserrat text-[36px] font-bold text-left'>Our Customers</p>
-            <br />
-            <p className='font-inter text-[20px] text-justify'>
-            Our customer majorly are five stars hotels, executive clubs, cafes, restaurants and, catering businesses.
+        <div className="w-full md:w-1/2 order-2 flex flex-col justify-center items-center">
+          <div className="w-full max-w-3xl">
+            <p className="font-montserrat text-[28px] md:text-[36px] font-bold text-left mb-4">Our Customers</p>
+            <p className="font-inter text-[16px] md:text-[20px] text-justify">
+              Our customers include five-star hotels, executive clubs, cafes, restaurants, and catering businesses.
             </p>
           </div>
         </div>
       </div>
 
-      <div className='flex' id='our-juice'>
-        <div className='flex flex-col justify-center items-center flex-1 m-4'>
-          <div className='w-full max-w-3xl'>
-            <p className='font-montserrat text-[36px] font-bold text-left'>Our Juice</p>
-            <br />
-            <p className='font-inter text-[20px] text-justify'>
-            When it comes to juice, the quality and freshness of the ingredients and method of extraction are integral in creating the best possible product. What has always been a driving force and distinguishing factor at Juice Shop is only offering raw and living, organic juices. We have adhered to these foundational standards since our humble beginnings when we were juicing for each other in our family kitchen. We are still committed to serving the freshest and purest juice to amplify the incredible health potential that exist in the plants we use.
+
+      <div className="flex flex-col md:flex-row items-center md:items-start px-4 md:px-16 gap-8 my-8" id="our-juice">
+        <div className="w-full md:w-1/2 order-1 md:order-2">
+          <img src={About5} alt="Our Juice" className="w-full h-auto rounded" />
+        </div>
+
+        <div className="w-full md:w-1/2 order-2 md:order-1 flex flex-col justify-center items-center">
+          <div className="w-full max-w-3xl">
+            <p className="font-montserrat text-[28px] md:text-[36px] font-bold text-left mb-4">Our Juice</p>
+            <p className="font-inter text-[16px] md:text-[20px] text-justify">
+              When it comes to juice, the quality and freshness of the ingredients and method of extraction are integral in creating the best possible product. What has always been a driving force and distinguishing factor at Juice Shop is only offering raw and living, organic juices.
+              <br /><br />
+              We have adhered to these foundational standards since our humble beginnings when we were juicing for each other in our family kitchen. We are still committed to serving the freshest and purest juice to amplify the incredible health potential that exists in the plants we use.
             </p>
           </div>
         </div>
-        <div className='flex-1'>
-          <img src={About5}></img>
-        </div>
       </div>
+
 
     </>
   )

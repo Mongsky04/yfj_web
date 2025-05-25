@@ -29,6 +29,11 @@ import Pineapple5 from "../../assets/images/products/juice5ltr/Pineapple.png";
 import Orange5 from "../../assets/images/products/juice5ltr/Orange.png";
 import Tomato5 from "../../assets/images/products/juice5ltr/Tomato.png";
 import FlorenOrange5 from "../../assets/images/products/juice5ltr/FlorenOrange.png";
+import FlorenMango5 from "../../assets/images/products/juice5ltr/FlorenMango.png";
+import FlorenPineapple5 from "../../assets/images/products/juice5ltr/FlorenPineapple.png";
+import FlorenGuava5 from "../../assets/images/products/juice5ltr/FlorenGuava.png";
+import FlorenApple5 from "../../assets/images/products/juice5ltr/FlorenApple.png";
+import Lychee5 from "../../assets/images/products/juice5ltr/Lychee.png";
 
 // Import Concentrate
 import AppleConce from "../../assets/images/products/concentrate/AppleConcentrate.png";
@@ -39,18 +44,18 @@ import StrawberryPuree from "../../assets/images/products/puree/StrawberryPuree.
 import MangoPuree from "../../assets/images/products/puree/MangoPuree.png";
 
 //Import IF
-import AppleFuji from "../../assets/images/products/importfruit/apple fuji.jpg";
-import GreenApple from "../../assets/images/products/importfruit/green apple.jpeg";
-import LemonKarton from "../../assets/images/products/importfruit/lemon karton.jpg";
-import OrangeKarton from "../../assets/images/products/importfruit/orange karton.jpg";
-import RedApple from "../../assets/images/products/importfruit/red apple.jpg";
+import AppleFuji from "../../assets/images/products/importfruit/apple fuji.png";
+import GreenApple from "../../assets/images/products/importfruit/green apple.png";
+import LemonKarton from "../../assets/images/products/importfruit/lemon karton.png";
+import OrangeKarton from "../../assets/images/products/importfruit/orange karton.png";
+import RedApple from "../../assets/images/products/importfruit/red apple.png";
 
 // Import Frozen IQF images
-import IQFBlueberry from "../../assets/images/products/FrozenIQF/iqf blueberry.jpg";
-import IQFMixberry from "../../assets/images/products/FrozenIQF/iqf mixberry.jpg";
-import IQFPineapple from "../../assets/images/products/FrozenIQF/iqf pineapple.jpg";
-import IQFStrawberry from "../../assets/images/products/FrozenIQF/iqf strawberry.jpg";
-import MIQFMango from "../../assets/images/products/FrozenIQF/miqf mango.jpg";
+import IQFBlueberry from "../../assets/images/products/FrozenIQF/iqf blueberry.png";
+import IQFMixberry from "../../assets/images/products/FrozenIQF/iqf mixberry.png";
+import IQFPineapple from "../../assets/images/products/FrozenIQF/iqf pineapple.png";
+import IQFStrawberry from "../../assets/images/products/FrozenIQF/iqf strawberry.png";
+import MIQFMango from "../../assets/images/products/FrozenIQF/iqf mango.png";
 
 export const juice1 = [
   {
@@ -379,7 +384,68 @@ export const juice5 = [
       tokopedia: "https://tokopedia.com/floren-orange-juice-5l",
       shopee: "https://shopee.co.id/floren-orange-juice-5l"
     }
+  },
+    {
+    id: 15,
+    name: "Floren Apple Juice",
+    src: FlorenApple5,
+    size: "5 Litre",
+    price: 148000,
+    description: "Premium Floren Apple Juice with a crisp and naturally sweet flavor.",
+    links: {
+      tokopedia: "https://tokopedia.com/floren-apple-juice-5l",
+      shopee: "https://shopee.co.id/floren-apple-juice-5l"
+    }
+  },
+  {
+    id: 16,
+    name: "Floren Pineapple Juice",
+    src: FlorenPineapple5,
+    size: "5 Litre",
+    price: 148000,
+    description: "Tropical Floren Pineapple Juice bursting with tangy and refreshing taste.",
+    links: {
+      tokopedia: "https://tokopedia.com/floren-pineapple-juice-5l",
+      shopee: "https://shopee.co.id/floren-pineapple-juice-5l"
+    }
+  },
+  {
+    id: 17,
+    name: "Floren Guava Juice",
+    src: FlorenGuava5,
+    size: "5 Litre",
+    price: 148000,
+    description: "Smooth Floren Guava Juice with a fragrant aroma and rich tropical flavor.",
+    links: {
+      tokopedia: "https://tokopedia.com/floren-guava-juice-5l",
+      shopee: "https://shopee.co.id/floren-guava-juice-5l"
+    }
+  },
+  {
+    id: 18,
+    name: "Floren Mango Juice",
+    src: FlorenMango5,
+    size: "5 Litre",
+    price: 148000,
+    description: "Luscious Floren Mango Juice with intense sweetness and fruity richness.",
+    links: {
+      tokopedia: "https://tokopedia.com/floren-mango-juice-5l",
+      shopee: "https://shopee.co.id/floren-mango-juice-5l"
+    }
+  },
+    {
+    id: 19,
+    name: "Lychee Juice",
+    src: Lychee5,
+    size: "5 Litre",
+    price: 148000,
+    description: "Delicate Floren Lychee Juice with floral aroma and naturally sweet, juicy flavor.",
+    links: {
+      tokopedia: "https://tokopedia.com/floren-lychee-juice-5l",
+      shopee: "https://shopee.co.id/floren-lychee-juice-5l"
+    }
   }
+
 ];
 
 export const puree = [

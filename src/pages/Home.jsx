@@ -43,8 +43,8 @@ const Home = () => {
       </section>
 
       {/* What's New Section */}
-      <section className="w-full bg-white py-16 px-4 flex flex-col items-center text-center">
-        <h2 className=" font-helvetica text-3xl sm:text-4xl md:text-5xl text-[#1F2937] font-moul font-bold">
+      <section className="w-full bg-white py-16 px-4 flex flex-col items-center text-center mt-20">
+        <h2 className=" font-helvetica text-3xl sm:text-4x md:text-5xl text-[#1F2937] font-moul font-bold">
           What's new?
         </h2>
         <p className=" font-helvetica mt-1 text-base sm:text-lg md:text-xl text-[#1F2937] font-semibold">
@@ -88,7 +88,7 @@ const Home = () => {
       </section>
 
       {/* Services Section */}
-      <section className="w-full bg-white py-16 px-4 flex flex-col items-center text-center">
+      <section className="w-full bg-white py-16 px-4 flex flex-col items-center text-center mt-20">
         <h2 className="text-3xl sm:text-4xl md:text-5xl text-[#1F2937] font-moul font-bold">
           Service
         </h2>
@@ -113,7 +113,7 @@ const Home = () => {
             {
               img: Other,
               title: "Other",
-              desc: "Other services that we may offer",
+              desc: "Got other requests? Let us know — we might help.",
             },
           ].map((item, i) => (
             <div
@@ -137,7 +137,7 @@ const Home = () => {
       </section>
 
       {/* Video Section */}
-      <section className="w-full bg-white py-16 px-4 flex flex-col items-center text-center">
+      <section className="w-full bg-white py-16 px-4 flex flex-col items-center text-center mt-20">
         <h2 className="text-3xl sm:text-4xl md:text-5xl text-[#1F2937] font-moul font-bold">
           Don't miss it
         </h2>

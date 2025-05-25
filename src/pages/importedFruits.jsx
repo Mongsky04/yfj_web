@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 
 //Import IF
-import AppleFuji from "../assets/images/products/importfruit/apple fuji.jpg";
-import GreenApple from "../assets/images/products/importfruit/green apple.jpeg";
-import LemonKarton from "../assets/images/products/importfruit/lemon karton.jpg";
-import OrangeKarton from "../assets/images/products/importfruit/orange karton.jpg";
-import RedApple from "../assets/images/products/importfruit/red apple.jpg";
+import AppleFuji from "../assets/images/products/importfruit/apple fuji.png";
+import GreenApple from "../assets/images/products/importfruit/green apple.png";
+import LemonKarton from "../assets/images/products/importfruit/lemon karton.png";
+import OrangeKarton from "../assets/images/products/importfruit/orange karton.png";
+import RedApple from "../assets/images/products/importfruit/red apple.png";
 
 // Imported Fruits Data
 const importFruits = [

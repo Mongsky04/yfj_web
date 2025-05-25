@@ -61,37 +61,33 @@ export default function FAQsPage() {
         "Yes, we are able to deliver outside of Jakarta.",
     },
     {
-      question: "How long do my juices last?",
-      answer: "Typically, our products last 3–5 days refrigerated.",
+      question: "Does it contain sugar?",
+      answer: "For juices like lemon and lime, we do not add any sugar at all, making them highly recommended as a mixer or a healthy beverage. For our other products, we use a small amount of pure granulated sugar to maintain flavor consistency.",
     },
     {
       question: "Do my juices need to be stored in a refrigerator?",
       answer: "Yes, we recommend refrigerating immediately upon arrival.",
     },
     {
-      question: "How can I return my 16oz bottles?",
+      question: "How long does the juice last?",
       answer:
-        "You may return them to any of our physical stores or arrange a return on your next delivery.",
+        "Our juice stays fresh for 1–2 weeks when refrigerated at 5°C.",
     },
   ];
 
   const shippingFAQs = [
     {
-      question: "What is the cutoff time to place an order for next day delivery?",
-      answer: "Orders must be placed before 6 PM for next day delivery.",
+      question: "Is there a minimum purchase for HORECA?",
+      answer: "Yes, our minimum delivery quantity is 50 liters for the Jabodetabek area.",
     },
     {
-      question: "What areas do you deliver to?",
-      answer: "We currently deliver across all major zones in Jakarta.",
+      question: "How many days in advance should HORECA orders be placed?",
+      answer: "The minimum order notice is 1 day in advance (H-1).",
     },
     {
-      question: "Are your Tonics available for national shipping?",
-      answer: "Not at this time. We are only servicing local delivery.",
-    },
-    {
-      question: "What are your delivery and shipping fees?",
+      question: "What is the return procedure?",
       answer:
-        "Fees vary by location, but free shipping applies to orders over IDR 300,000.",
+        "We apply a customer satisfaction policy — if there are any complaints regarding our product within the best before period, we will conduct an inspection and provide a replacement product accordingly.",
     },
   ];
 

@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 
 // Import Frozen IQF images
-import IQFBlueberry from "../assets/images/products/FrozenIQF/iqf blueberry.jpg";
-import IQFMixberry from "../assets/images/products/FrozenIQF/iqf mixberry.jpg";
-import IQFPineapple from "../assets/images/products/FrozenIQF/iqf pineapple.jpg";
-import IQFStrawberry from "../assets/images/products/FrozenIQF/iqf strawberry.jpg";
-import MIQFMango from "../assets/images/products/FrozenIQF/miqf mango.jpg";
+import IQFBlueberry from "../assets/images/products/FrozenIQF/iqf blueberry.png";
+import IQFMixberry from "../assets/images/products/FrozenIQF/iqf mixberry.png";
+import IQFPineapple from "../assets/images/products/FrozenIQF/iqf pineapple.png";
+import IQFStrawberry from "../assets/images/products/FrozenIQF/iqf strawberry.png";
+import MIQFMango from "../assets/images/products/FrozenIQF/iqf mango.png";
 
 // Frozen IQF Data
 const frozenIQF = [
