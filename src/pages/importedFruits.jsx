@@ -6,14 +6,16 @@ import GreenApple from "../assets/images/products/importfruit/green apple.png";
 import LemonKarton from "../assets/images/products/importfruit/lemon karton.png";
 import OrangeKarton from "../assets/images/products/importfruit/orange karton.png";
 import RedApple from "../assets/images/products/importfruit/red apple.png";
+import GreenGrape from "../assets/images/products/importfruit/grape.png";
 
 // Imported Fruits Data
 const importFruits = [
   { id: 1, name: "Apple Fuji", src: AppleFuji },
   { id: 2, name: "Green Apple", src: GreenApple },
-  { id: 3, name: "Lemon in Carton", src: LemonKarton },
-  { id: 4, name: "Orange in Carton", src: OrangeKarton },
+  { id: 3, name: "Lemon", src: LemonKarton },
+  { id: 4, name: "Orange", src: OrangeKarton },
   { id: 5, name: "Red Apple", src: RedApple },
+  { id: 6, name: "Grape", src: GreenGrape },
 ];
 
 // Components

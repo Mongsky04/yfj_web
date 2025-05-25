@@ -12,7 +12,7 @@ const navColumns = [
   },
   {
     items: [
-      { label: "FAQS", path: "/faqs" },
+      { label: "FAQS", path: "/faqs#faqs" },
       { label: "WHOLESALE", path: "/contact?form=order" },
       { label: "CONTACT US", path: "/contact?form=contact" },
     ],

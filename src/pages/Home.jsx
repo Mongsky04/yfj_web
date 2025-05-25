@@ -11,6 +11,7 @@ import B2B from "../assets/images/b2b.png";
 import Custom from "../assets/images/custom.png";
 import Other from "../assets/images/other.png";
 import JuiceVideo from "../assets/images/jusbagus.mp4";
+import qrcode from "../assets/images/qrcode.jpg"
 
 const Home = () => {
   return (
@@ -25,22 +26,30 @@ const Home = () => {
       </section>
 
 
-      {/* Introduction Section */}
       <section className="relative w-full min-h-screen bg-white flex flex-col items-center justify-center text-center px-4 py-12">
+        {/* QR Code fixed to top center */}
+        <img
+          src={qrcode}
+          alt="QR Code"
+          className="absolute top-4 left-1/2 transform -translate-x-1/2 w-20 sm:w-36 md:w-44"
+        />
+
         <div className="z-10">
-          <h1 className=" font-helvetica text-3xl sm:text-4xl md:text-5xl font-moul text-[#1F2937] font-bold">
+          <h1 className="font-helvetica text-3xl sm:text-4xl md:text-5xl font-moul text-[#1F2937] font-bold">
             Yuliana Fresh Juice
           </h1>
-          <p className=" font-helvetica mt-2 text-base sm:text-lg md:text-xl text-[#1F2937]">
+          <p className="font-helvetica mt-2 text-base sm:text-lg md:text-xl text-[#1F2937]">
             Legacy of Mother Nature
           </p>
         </div>
+
         <img
           src={Orange}
           alt="Orange splash"
           className="absolute bottom-0 right-0 w-40 sm:w-60 md:w-80 h-auto object-contain opacity-90 pointer-events-none animate-slide-up"
         />
       </section>
+
 
       {/* What's New Section */}
       <section className="w-full bg-white py-16 px-4 flex flex-col items-center text-center mt-20">

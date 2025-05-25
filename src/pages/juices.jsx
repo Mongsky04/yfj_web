@@ -30,39 +30,49 @@ import Pineapple5 from "../assets/images/products/juice5ltr/Pineapple.png";
 import Orange5 from "../assets/images/products/juice5ltr/Orange.png";
 import Tomato5 from "../assets/images/products/juice5ltr/Tomato.png";
 import FlorenOrange5 from "../assets/images/products/juice5ltr/FlorenOrange.png";
+import FlorenMango5 from "../assets/images/products/juice5ltr/FlorenMango.png";
+import FlorenApple5 from "../assets/images/products/juice5ltr/FlorenApple.png";
+import FlorenPineapple5 from "../assets/images/products/juice5ltr/FlorenPineapple.png";
+import FlorenGuava5 from "../assets/images/products/juice5ltr/FlorenGuava.png";
+import Lychee5 from "../assets/images/products/juice5ltr/Lychee.png";
 
 // Data
 const juice1 = [
-  { id: 1, name: "Cranberry Juice", src: Cranberry1 },
-  { id: 2, name: "Lemon Juice", src: Lemon1 },
-  { id: 3, name: "Guava Juice", src: Guava1 },
+  { id: 1, name: "Cranberry Juice", src: Cranberry1, onSale: true },
+  { id: 2, name: "Lemon Juice", src: Lemon1, onSale: true },
+  { id: 3, name: "Guava Juice", src: Guava1, onSale: true },
   { id: 4, name: "Apple Juice", src: Apple1 },
-  { id: 5, name: "Lime Juice", src: Lime1 },
+  { id: 5, name: "Lime Juice", src: Lime1, onSale: true },
   { id: 6, name: "Lychee Juice", src: Lychee1 },
   { id: 7, name: "Mango Juice", src: Mango1 },
   { id: 8, name: "Soursop Juice", src: Soursop1 },
   { id: 9, name: "Strawberry Juice", src: Strawberry1 },
   { id: 10, name: "Yuzu Juice", src: Yuzu1 },
   { id: 11, name: "Pineapple Juice", src: Pineapple1 },
-  { id: 12, name: "Orange Juice", src: Orange1 },
+  { id: 12, name: "Orange Juice", src: Orange1, onSale: true },
   { id: 13, name: "Tomato Juice", src: Tomato1 },
 ];
 
 const juice5 = [
-  { id: 1, name: "Cranberry Juice", src: Cranberry5 },
-  { id: 2, name: "Lemon Juice", src: Lemon5 },
-  { id: 3, name: "Guava Juice", src: Guava5 },
-  { id: 4, name: "Apple Juice", src: Apple5 },
-  { id: 5, name: "Lime Juice", src: Lime5 },
-  { id: 6, name: "Pink Grape Fruit Juice", src: PinkGrapeFruit5 },
-  { id: 7, name: "Mango Juice", src: Mango5 },
-  { id: 8, name: "Soursop Juice", src: Soursop5 },
-  { id: 9, name: "Strawberry Juice", src: Strawberry5 },
-  { id: 10, name: "Yuzu Juice", src: Yuzu5 },
-  { id: 11, name: "Pineapple Juice", src: Pineapple5 },
-  { id: 12, name: "Orange Juice", src: Orange5 },
-  { id: 13, name: "Tomato Juice", src: Tomato5 },
-  { id: 14, name: "Floren Orange Juice", src: FlorenOrange5 },
+  { id: 1, name: "Cranberry Juice", src: Cranberry5, onSale: true },
+  { id: 2, name: "Lemon Juice", src: Lemon5, onSale: true  },
+  { id: 3, name: "Guava Juice", src: Guava5, onSale: true  },
+  { id: 4, name: "Apple Juice", src: Apple5, onSale: true  },
+  { id: 5, name: "Lime Juice", src: Lime5, onSale: true  },
+  { id: 6, name: "Pink Grape Fruit Juice", src: PinkGrapeFruit5},
+  { id: 7, name: "Mango Juice", src: Mango5},
+  { id: 8, name: "Soursop Juice", src: Soursop5},
+  { id: 9, name: "Strawberry Juice", src: Strawberry5},
+  { id: 10, name: "Yuzu Juice", src: Yuzu5},
+  { id: 11, name: "Pineapple Juice", src: Pineapple5},
+  { id: 12, name: "Orange Juice", src: Orange5, onSale: true  },
+  { id: 13, name: "Tomato Juice", src: Tomato5},
+  { id: 14, name: "Floren Orange Juice", src: FlorenOrange5},
+    { id: 15, name: "Floren Apple Juice", src: FlorenApple5},
+    { id: 16, name: "Floren Mango Juice", src: FlorenMango5},
+    { id: 17, name: "Floren Pineapple Juice", src: FlorenPineapple5},
+    { id: 18, name: "Floren Guava Juice", src: FlorenGuava5},
+    { id: 19, name: "Lychee Juice", src: Lychee5}
 ];
 
 // Components
@@ -90,7 +100,7 @@ const ProductCard = ({ id, name, src, onSale, type }) => (
     <div className="relative group">
       {onSale && (
         <span className="absolute top-2 left-2 bg-yellow-400 text-white text-xs font-semibold px-2 py-1 rounded">
-          Sale
+          Best Seller
         </span>
       )}
       <div className="overflow-hidden rounded-lg shadow-lg group-hover:shadow-xl transition-shadow">

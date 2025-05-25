@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import faqImage from "../assets/images/faq-fruits.jpg";
 import deliveryImage from "../assets/images/shipping-fruits.jpg";
 import cleanseImage from "../assets/images/cleanse-fruits.jpg";
+import { useLocation } from 'react-router-dom';
 
 const FAQSection = ({ title, faqs, image }) => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -10,8 +11,23 @@ const FAQSection = ({ title, faqs, image }) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const el = document.querySelector(location.hash);
+      if (el) {
+        setTimeout(() => {
+          const yOffset = -100;
+          const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }, 0);
+      }
+    }
+  }, [location]);
+
   return (
-    <div className="flex flex-col md:flex-row items-start gap-10 py-12 border-b">
+    <div id="faqs" className="flex flex-col md:flex-row items-start gap-10 py-12 border-b">
       <div className="flex-1">
         <h2 className="text-2xl font-bold uppercase mb-6">{title}</h2>
         <ul className="space-y-4">
@@ -62,7 +78,7 @@ export default function FAQsPage() {
     },
     {
       question: "Does it contain sugar?",
-      answer: "For juices like lemon and lime, we do not add any sugar at all, making them highly recommended as a mixer or a healthy beverage. For our other products, we use a small amount of pure granulated sugar to maintain flavor consistency.",
+      answer: "For juices like lemon and lime, we do not add any sugar at all, making them highly recommended as a mixer or a healthy beverage. For our other products, we use a small amount of pure sugar cane to maintain flavor consistency.",
     },
     {
       question: "Do my juices need to be stored in a refrigerator?",
@@ -123,7 +139,6 @@ export default function FAQsPage() {
         faqs={shippingFAQs}
         image={deliveryImage}
       />
-      <FAQSection title="Cleanses" faqs={cleanseFAQs} image={cleanseImage} />
     </div>
   );
 }

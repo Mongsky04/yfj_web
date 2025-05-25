@@ -51,16 +51,16 @@ const juice1 = [
   { id: 1, name: "Cranberry Juice", src: Cranberry1, onSale: true },
   { id: 2, name: "Lemon Juice", src: Lemon1, onSale: true },
   { id: 3, name: "Guava Juice", src: Guava1, onSale: true },
-  { id: 4, name: "Apple Juice", src: Apple1, onSale: true },
+  { id: 4, name: "Apple Juice", src: Apple1},
   { id: 5, name: "Lime Juice", src: Lime1, onSale: true },
-  { id: 6, name: "Lychee Juice", src: Lychee1, onSale: true },
-  { id: 7, name: "Mango Juice", src: Mango1, onSale: true },
-  { id: 8, name: "Soursop Juice", src: Soursop1, onSale: true },
-  { id: 9, name: "Strawberry Juice", src: Strawberry1, onSale: true },
-  { id: 10, name: "Yuzu Juice", src: Yuzu1, onSale: true },
-  { id: 11, name: "Pineapple Juice", src: Pineapple1, onSale: true },
+  { id: 6, name: "Lychee Juice", src: Lychee1},
+  { id: 7, name: "Mango Juice", src: Mango1},
+  { id: 8, name: "Soursop Juice", src: Soursop1},
+  { id: 9, name: "Strawberry Juice", src: Strawberry1},
+  { id: 10, name: "Yuzu Juice", src: Yuzu1},
+  { id: 11, name: "Pineapple Juice", src: Pineapple1},
   { id: 12, name: "Orange Juice", src: Orange1, onSale: true },
-  { id: 13, name: "Tomato Juice", src: Tomato1, onSale: true },
+  { id: 13, name: "Tomato Juice", src: Tomato1},
 ];
 
 const juice5 = [
@@ -69,30 +69,30 @@ const juice5 = [
   { id: 3, name: "Guava Juice", src: Guava5, onSale: true },
   { id: 4, name: "Apple Juice", src: Apple5, onSale: true },
   { id: 5, name: "Lime Juice", src: Lime5, onSale: true },
-  { id: 6, name: "Pink Grape Fruit Juice", src: PinkGrapeFruit5, onSale: true },
-  { id: 7, name: "Mango Juice", src: Mango5, onSale: true },
-  { id: 8, name: "Soursop Juice", src: Soursop5, onSale: true },
-  { id: 9, name: "Strawberry Juice", src: Strawberry5, onSale: true },
-  { id: 10, name: "Yuzu Juice", src: Yuzu5, onSale: true },
-  { id: 11, name: "Pineapple Juice", src: Pineapple5, onSale: true },
-  { id: 12, name: "Orange Juice", src: Orange5, onSale: true },
-  { id: 13, name: "Tomato Juice", src: Tomato5, onSale: true },
-  { id: 14, name: "Floren Orange Juice", src: FlorenOrange5, onSale: true },
-  { id: 15, name: "Floren Apple Juice", src: FlorenApple5, onSale: true },
-  { id: 16, name: "Floren Mango Juice", src: FlorenMango5, onSale: true },
-  { id: 17, name: "Floren Pineapple Juice", src: FlorenPineapple5, onSale: true },
-  { id: 18, name: "Floren Guava Juice", src: FlorenGuava5, onSale: true },
-  { id: 19, name: "Lychee Juice", src: Lychee5, onSale: true }
+  { id: 6, name: "Pink Grape Fruit Juice", src: PinkGrapeFruit5},
+  { id: 7, name: "Mango Juice", src: Mango5},
+  { id: 8, name: "Soursop Juice", src: Soursop5},
+  { id: 9, name: "Strawberry Juice", src: Strawberry5},
+  { id: 10, name: "Yuzu Juice", src: Yuzu5},
+  { id: 11, name: "Pineapple Juice", src: Pineapple5},
+  { id: 12, name: "Orange Juice", src: Orange5, onSale: true},
+  { id: 13, name: "Tomato Juice", src: Tomato5},
+  { id: 14, name: "Floren Orange Juice", src: FlorenOrange5},
+  { id: 15, name: "Floren Apple Juice", src: FlorenApple5},
+  { id: 16, name: "Floren Mango Juice", src: FlorenMango5},
+  { id: 17, name: "Floren Pineapple Juice", src: FlorenPineapple5},
+  { id: 18, name: "Floren Guava Juice", src: FlorenGuava5},
+  { id: 19, name: "Lychee Juice", src: Lychee5}
 ];
 
 const puree = [
-  { id: 1, name: "Strawberry Puree", src: StrawberryPuree, onSale: true },
-  { id: 2, name: "Mango Puree", src: MangoPuree, onSale: true },
+  { id: 1, name: "Strawberry Puree", src: StrawberryPuree},
+  { id: 2, name: "Mango Puree", src: MangoPuree},
 ];
 
 const concentrate = [
-  { id: 1, name: "Apple Concentrate", src: AppleConce, onSale: true },
-  { id: 2, name: "Orange Concentrate", src: OrangeConce, onSale: true },
+  { id: 1, name: "Apple Concentrate", src: AppleConce},
+  { id: 2, name: "Orange Concentrate", src: OrangeConce},
 ];
 
 // Page header component
@@ -122,7 +122,7 @@ const ProductCard = ({ id, name, src, onSale, type }) => (
     <div className="relative group">
       {onSale && (
         <span className="absolute top-2 left-2 bg-yellow-400 text-white text-xs font-semibold px-2 py-1 rounded">
-          Sale
+          Best Seller
         </span>
       )}
       <div className="overflow-hidden rounded-lg shadow-lg group-hover:shadow-xl transition-shadow">

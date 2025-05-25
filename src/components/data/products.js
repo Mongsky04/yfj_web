@@ -49,6 +49,7 @@ import GreenApple from "../../assets/images/products/importfruit/green apple.png
 import LemonKarton from "../../assets/images/products/importfruit/lemon karton.png";
 import OrangeKarton from "../../assets/images/products/importfruit/orange karton.png";
 import RedApple from "../../assets/images/products/importfruit/red apple.png";
+import GreenGrape from "../../assets/images/products/importfruit/grape.png";
 
 // Import Frozen IQF images
 import IQFBlueberry from "../../assets/images/products/FrozenIQF/iqf blueberry.png";
@@ -523,14 +524,14 @@ export const importFruits = [
   },
   {
     id: 3,
-    name: "Lemon in Carton",
+    name: "Lemon",
     size: "1 Kg",
     src: LemonKarton,
     description: "Carton-packed lemons ready for wholesale or retail.",
   },
   {
     id: 4,
-    name: "Orange in Carton",
+    name: "Orange",
     size: "1 Kg",
     src: OrangeKarton,
     description: "Fresh oranges packed neatly in cartons.",
@@ -542,6 +543,13 @@ export const importFruits = [
     src: RedApple,
     description: "Crisp and sweet red apples in cardboard box.",
   },
+    {
+    id: 6,
+    name: "Green Grape",
+    size: "1 Kg",
+    src: GreenGrape,
+    description: "Fresh and juicy green grapes packed with care.",
+  }
 ];
 
 export const frozenIQF = [
